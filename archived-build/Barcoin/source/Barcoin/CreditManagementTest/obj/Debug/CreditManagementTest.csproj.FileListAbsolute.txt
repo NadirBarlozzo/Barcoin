@@ -1,0 +1,11 @@
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\source\Barcoin\CreditManagementTest\bin\Debug\CreditManagementTest.exe.config
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\source\Barcoin\CreditManagementTest\bin\Debug\CreditManagementTest.exe
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\source\Barcoin\CreditManagementTest\bin\Debug\CreditManagementTest.pdb
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\source\Barcoin\CreditManagementTest\obj\Debug\CreditManagementTest.csprojAssemblyReference.cache
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\source\Barcoin\CreditManagementTest\obj\Debug\CreditManagementTest.csproj.CoreCompileInputs.cache
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\source\Barcoin\CreditManagementTest\obj\Debug\CreditManagementTest.exe
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\source\Barcoin\CreditManagementTest\obj\Debug\CreditManagementTest.pdb
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\source\Barcoin\CreditManagementTest\bin\Debug\MySql.Data.dll
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\source\Barcoin\CreditManagementTest\bin\Debug\Google.Protobuf.dll
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\source\Barcoin\CreditManagementTest\bin\Debug\MySql.Data.xml
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\source\Barcoin\CreditManagementTest\obj\Debug\CreditManagementTest.csproj.CopyComplete

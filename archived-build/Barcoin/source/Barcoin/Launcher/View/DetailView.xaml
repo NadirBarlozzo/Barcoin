@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="Launcher.View.DetailView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             DataContext="{Binding Source={StaticResource Locator}, Path=Detail}"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1080">
+    <UserControl.InputBindings>
+        <KeyBinding Command="{Binding PrintCommand}" Key="p"/>
+        <KeyBinding Command="{Binding ExportCommand}" Key="e"/>
+    </UserControl.InputBindings>
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="{Binding Path=SelectedCreditor.DiemRate, StringFormat='Diem Rate: {0}d/y'}" FontSize="20" FontFamily="Montserrat"></TextBlock>
+        <TextBlock Grid.Row="1" Text="{Binding Path=SelectedCreditor.DefaultInterestRate, StringFormat='Default Interest Rate: {0}%'}" FontSize="20" FontFamily="Montserrat"></TextBlock>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <DatePicker VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" Height="25" SelectedDate="{Binding Path=NewDate}"></DatePicker>
+            <TextBox Grid.Row="1" Style="{StaticResource PlaceHolder}" Tag="Principal e.g 80" Height="20" Width="150" HorizontalAlignment="Left" Text="{Binding Path=NewPrincipal, Mode=TwoWay}"></TextBox>
+            <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource PlaceHolder}" Tag="Interest Rate e.g 6" Height="20" Width="150" HorizontalAlignment="Left" Text="{Binding Path=NewInterestRate, Mode=TwoWay}"></TextBox>
+            <Button Grid.Row="1" Grid.Column="1" Height="20" Width="120" HorizontalAlignment="Left" Command="{Binding Path=AddTransactionCommand}">Add Transaction</Button>
+        </Grid>
+        <DataGrid x:Name="dg" ItemsSource="{Binding Path=BalanceData, Mode=TwoWay}" Grid.Row="3" Grid.ColumnSpan="2"
+                  AutoGenerateColumns="False" Background="Transparent" FontSize="20" FontFamily="Montserrat"
+                  IsReadOnly="True" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Date"
+                      Binding="{Binding Path=Transaction.RawDate, StringFormat=yyyy/MM/dd}" Width="*"/>
+                <DataGridTextColumn Header="Principal"
+                      Binding="{Binding Path=Transaction.Principal, StringFormat={}{0} CHF}" Width="*"/>
+                <DataGridTextColumn Header="Interest Rate"
+                      Binding="{Binding Path=Transaction.InterestRate, StringFormat={}{0}%}" Width="*"/>
+                <DataGridTextColumn Header="Principal Balance"
+                      Binding="{Binding Path=PrincipalBalance, StringFormat={}{0} CHF}" Width="*"/>
+                <DataGridTextColumn Header="Accrued Interest"
+                      Binding="{Binding Path=AccruedInterest, StringFormat={}{0} CHF}" Width="*"/>
+                <DataGridTextColumn Header="Interest Balance"
+                      Binding="{Binding Path=InterestBalance, StringFormat={}{0} CHF}" Width="*"/>
+                <DataGridTextColumn Header="Principal Paid"
+                      Binding="{Binding Path=PrincipalPaid, StringFormat={}{0} CHF}" Width="*"/>
+                <DataGridTextColumn Header="Interest Paid"
+                      Binding="{Binding Path=InterestPaid, StringFormat={}{0} CHF}" Width="*"/>
+                <DataGridTextColumn Header="Total Owed"
+                      Binding="{Binding Path=TotalOwed, StringFormat={}{0} CHF}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <lvc:CartesianChart Grid.Column="1" Grid.RowSpan="3" Series="{Binding Path=GraphData}"
+            LegendLocation="Right">
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="Balance"></lvc:Axis>
+            </lvc:CartesianChart.AxisY>
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title="Date" Labels="{Binding Dates}"></lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+        </lvc:CartesianChart>
+    </Grid>
+</UserControl>
