@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barcoin.Client", "Barcoin.Client\Barcoin.Client.csproj", "{DAE54523-5079-4C6B-A41A-E7E36625E132}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Barcoin.Blockchain", "Barcoin.Blockchain\Barcoin.Blockchain.csproj", "{EE026870-E201-40DF-AD0E-E50FA7D8716C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,14 +15,22 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DAE54523-5079-4C6B-A41A-E7E36625E132}.Debug|Any CPU.ActiveCfg = Release|Any CPU
-		{DAE54523-5079-4C6B-A41A-E7E36625E132}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{DAE54523-5079-4C6B-A41A-E7E36625E132}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAE54523-5079-4C6B-A41A-E7E36625E132}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAE54523-5079-4C6B-A41A-E7E36625E132}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{DAE54523-5079-4C6B-A41A-E7E36625E132}.Debug|x64.Build.0 = Debug|Any CPU
 		{DAE54523-5079-4C6B-A41A-E7E36625E132}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAE54523-5079-4C6B-A41A-E7E36625E132}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DAE54523-5079-4C6B-A41A-E7E36625E132}.Release|x64.ActiveCfg = Release|Any CPU
 		{DAE54523-5079-4C6B-A41A-E7E36625E132}.Release|x64.Build.0 = Release|Any CPU
+		{EE026870-E201-40DF-AD0E-E50FA7D8716C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE026870-E201-40DF-AD0E-E50FA7D8716C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE026870-E201-40DF-AD0E-E50FA7D8716C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EE026870-E201-40DF-AD0E-E50FA7D8716C}.Debug|x64.Build.0 = Debug|Any CPU
+		{EE026870-E201-40DF-AD0E-E50FA7D8716C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE026870-E201-40DF-AD0E-E50FA7D8716C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE026870-E201-40DF-AD0E-E50FA7D8716C}.Release|x64.ActiveCfg = Release|Any CPU
+		{EE026870-E201-40DF-AD0E-E50FA7D8716C}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
