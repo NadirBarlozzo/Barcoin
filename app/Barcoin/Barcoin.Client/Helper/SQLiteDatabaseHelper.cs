@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Barcoin.Client.Model;
+using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Windows; 
+using System.Windows;
 
 namespace Barcoin.Client.Helper
 {
@@ -14,6 +15,10 @@ namespace Barcoin.Client.Helper
             string connectionString = "Data Source="+ Environment.CurrentDirectory +"\\barcoin.sqlite; Version=3;";
 
             databaseConnection = new SQLiteConnection(connectionString);
+
+            DbHelper dh = new DbHelper();
+            List<Creditor> l = dh.Get();
+            MessageBox.Show(l[0].CreditorName);
         }
 
         public List<string[]> ProcessQuery(string query)

@@ -112,3 +112,6 @@ C:\Users\wHisxaa\Documents\GitMain\Barcoin\app\Barcoin\Barcoin.Client\obj\Debug\
 C:\Users\wHisxaa\Documents\GitMain\Barcoin\app\Barcoin\Barcoin.Client\obj\Debug\Barcoin.Client.csproj.CopyComplete
 C:\Users\wHisxaa\Documents\GitMain\Barcoin\app\Barcoin\Barcoin.Client\obj\Debug\Barcoin.Client.exe
 C:\Users\wHisxaa\Documents\GitMain\Barcoin\app\Barcoin\Barcoin.Client\obj\Debug\Barcoin.Client.pdb
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\app\Barcoin\Barcoin.Client\bin\Debug\Dapper.dll
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\app\Barcoin\Barcoin.Client\bin\Debug\SqlKata.Execution.dll
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\app\Barcoin\Barcoin.Client\bin\Debug\Dapper.xml

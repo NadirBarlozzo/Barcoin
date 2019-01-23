@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><project name="GanttBarcoin" company="" webLink="http://" view-date="2018-12-31" view-index="0" gantt-divider-location="485" resource-divider-location="300" version="2.8.5" locale="en_GB">
     <description/>
-    <view zooming-state="default:1" id="gantt-chart">
+    <view zooming-state="default:5" id="gantt-chart">
         <field id="tpd3" name="Name" width="307" order="0"/>
         <field id="tpd4" name="Begin date" width="88" order="1"/>
         <field id="tpd5" name="End date" width="86" order="2"/>
@@ -11,15 +11,18 @@
         <field id="1" name="Default role" width="86" order="1"/>
     </view>
     <!-- -->
-    <calendars>
+    <calendars base-id="none">
         <day-types>
             <day-type id="0"/>
             <day-type id="1"/>
-            <default-week id="1" name="default" sun="1" mon="1" tue="0" wed="0" thu="1" fri="1" sat="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="1" fri="1" sat="1"/>
             <only-show-weekends value="false"/>
             <overriden-day-types/>
             <days/>
         </day-types>
+        <date year="2019" month="1" date="7" type="HOLIDAY"/>
+        <date year="2019" month="1" date="14" type="HOLIDAY"/>
+        <date year="2019" month="1" date="21" type="HOLIDAY"/>
     </calendars>
     <tasks empty-milestones="true">
         <taskproperties>
@@ -34,41 +37,42 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="0" name="Analisi" color="#00cc33" meeting="false" start="2019-01-08" duration="4" complete="0" expand="true">
-            <task id="7" name="intervista cliente" color="#00cc33" meeting="false" start="2019-01-08" duration="1" complete="0" expand="true"/>
-            <task id="8" name="risoluzione dubbi" meeting="false" start="2019-01-08" duration="1" complete="0" expand="true"/>
+        <task id="0" name="Analisi" color="#00cc33" meeting="false" start="2019-01-08" duration="5" complete="0" expand="true">
             <task id="9" name="analisi del dominio" meeting="false" start="2019-01-08" duration="1" complete="0" expand="true"/>
-            <task id="10" name="analisi dei requisiti" meeting="false" start="2019-01-09" duration="1" complete="0" expand="true"/>
             <task id="11" name="analisi costi e benefici" meeting="false" start="2019-01-09" duration="1" complete="0" expand="true"/>
             <task id="52" name="analisi tecnologia blockchain" meeting="false" start="2019-01-09" duration="3" complete="0" expand="true">
                 <task id="53" name="analisi crittografia" meeting="false" start="2019-01-09" duration="1" complete="0" expand="true"/>
                 <task id="54" name="analisi chiavi pubbliche/private" meeting="false" start="2019-01-09" duration="2" complete="0" expand="true"/>
                 <task id="55" name="analisi firme digitali" meeting="false" start="2019-01-15" duration="1" complete="0" expand="true"/>
-                <task id="56" name="analisi integrità strutturale" meeting="false" start="2019-01-16" duration="1" complete="0" expand="true"/>
+                <task id="56" name="analisi algoritmi di consenso" meeting="false" start="2019-01-16" duration="1" complete="0" expand="true"/>
             </task>
-            <task id="12" name="documento specifica completo" color="#8cb6ce" meeting="true" start="2019-01-16" duration="0" complete="0" expand="true"/>
+            <task id="7" name="intervista cliente" color="#00cc33" meeting="false" start="2019-01-15" duration="1" complete="0" expand="true"/>
+            <task id="8" name="risoluzione dubbi" meeting="false" start="2019-01-15" duration="1" complete="0" expand="true"/>
+            <task id="10" name="analisi dei requisiti" meeting="false" start="2019-01-22" duration="1" complete="0" expand="true"/>
+            <task id="12" name="documento specifica completo" color="#8cb6ce" meeting="true" start="2019-01-22" duration="0" complete="0" expand="true"/>
         </task>
-        <task id="1" name="Progettazione" color="#0000cc" meeting="false" start="2019-01-22" duration="1" complete="0" expand="true">
-            <task id="16" name="modifica schema E-R database" color="#0000cc" meeting="false" start="2019-01-22" duration="1" complete="0" expand="true"/>
-            <task id="18" name="aggiunta interfacce" meeting="false" start="2019-01-22" duration="1" complete="0" expand="true"/>
-            <task id="60" name="struttura blockchain" meeting="false" start="2019-01-22" duration="1" complete="0" expand="true"/>
+        <task id="1" name="Progettazione" color="#0000cc" meeting="false" start="2019-01-22" duration="2" complete="0" expand="true">
+            <task id="73" name="protocollo di progetto" meeting="false" start="2019-01-22" duration="2" complete="0" expand="true"/>
+            <task id="16" name="modifica schema E-R database" color="#0000cc" meeting="false" start="2019-01-23" duration="1" complete="0" expand="true"/>
+            <task id="18" name="aggiunta interfacce" meeting="false" start="2019-01-23" duration="1" complete="0" expand="true"/>
+            <task id="60" name="struttura blockchain" meeting="false" start="2019-01-23" duration="1" complete="0" expand="true"/>
         </task>
-        <task id="2" name="Implementazione" color="#ff9900" meeting="false" start="2019-01-23" duration="17" complete="0" expand="true">
-            <task id="24" name="modifica del database per multiutenza" color="#ff9900" meeting="false" start="2019-01-23" duration="1" complete="0" expand="true"/>
-            <task id="65" name="integrazione query-building" meeting="false" start="2019-01-23" duration="1" complete="0" expand="true"/>
-            <task id="25" name="pattern ORM" meeting="false" start="2019-01-23" duration="1" complete="0" expand="true"/>
-            <task id="67" name="creazione nuove interfacce in WPF" meeting="false" start="2019-01-29" duration="2" complete="0" expand="true"/>
-            <task id="69" name="gestione multiutente" meeting="false" start="2019-01-29" duration="2" complete="0" expand="true"/>
-            <task id="34" name="libreria di progetto blockchain" meeting="false" start="2019-02-05" duration="10" complete="0" expand="true"/>
-            <task id="71" name="integrare libreria con il client" meeting="false" start="2019-03-12" duration="4" complete="0" expand="true"/>
+        <task id="2" name="Implementazione" color="#ff9900" meeting="false" start="2019-01-28" duration="24" complete="0" expand="true">
+            <task id="24" name="modifica del database per multiutenza" color="#ff9900" meeting="false" start="2019-01-28" duration="1" complete="0" expand="true"/>
+            <task id="65" name="integrazione query-building" meeting="false" start="2019-01-28" duration="1" complete="0" expand="true"/>
+            <task id="25" name="pattern ORM" meeting="false" start="2019-01-29" duration="2" complete="0" expand="true"/>
+            <task id="67" name="creazione nuove interfacce in WPF" meeting="false" start="2019-01-30" duration="2" complete="0" expand="true"/>
+            <task id="69" name="gestione multiutente" meeting="false" start="2019-02-04" duration="3" complete="0" expand="true"/>
+            <task id="34" name="libreria di progetto blockchain" meeting="false" start="2019-02-11" duration="13" complete="0" expand="true"/>
+            <task id="71" name="integrare libreria con il client" meeting="false" start="2019-03-12" duration="5" complete="0" expand="true"/>
         </task>
-        <task id="3" name="Test" color="#33ffcc" meeting="false" start="2019-03-26" duration="2" complete="0" expand="true">
-            <task id="30" name="test login/logout utente" color="#33ffcc" meeting="false" start="2019-03-26" duration="1" complete="0" expand="true"/>
-            <task id="31" name="test autonomia blockchain" meeting="false" start="2019-03-26" duration="2" complete="0" expand="true"/>
-            <task id="33" name="test integrazione client" meeting="false" start="2019-03-27" duration="1" complete="0" expand="true"/>
+        <task id="3" name="Test" color="#33ffcc" meeting="false" start="2019-03-25" duration="6" complete="0" expand="true">
+            <task id="30" name="test login/logout utente" color="#33ffcc" meeting="false" start="2019-03-25" duration="1" complete="0" expand="true"/>
+            <task id="31" name="test autonomia blockchain" meeting="false" start="2019-03-25" duration="3" complete="0" expand="true"/>
+            <task id="33" name="test integrazione client" meeting="false" start="2019-03-27" duration="4" complete="0" expand="true"/>
         </task>
         <task id="4" name="Consegna" color="#8cb6ce" meeting="true" start="2019-04-10" duration="0" complete="0" expand="true"/>
-        <task id="5" name="Documentazione" color="#ff00ff" meeting="false" start="2019-04-10" duration="1" complete="0" expand="true"/>
+        <task id="5" name="Documentazione" color="#ff00ff" meeting="false" start="2019-01-08" duration="39" complete="0" expand="true"/>
     </tasks>
     <resources/>
     <allocations/>
