@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using SqlKata.Execution;
 
 namespace Barcoin.Client.Helper
 {
     interface IDbHelper
     {
-        List<string[]> ProcessQuery(string query);
+        QueryFactory GetFactory();
     }
 }

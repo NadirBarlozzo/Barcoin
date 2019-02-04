@@ -9,17 +9,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
     <UserControl.Resources>
-        <DataTemplate DataType="{x:Type viewmodel:DashboardViewModel}">
-            <local:DashboardView></local:DashboardView>
+        <DataTemplate DataType="{x:Type viewmodel:LoginViewModel}">
+            <local:LoginView></local:LoginView>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodel:DetailViewModel}">
-            <local:DetailView></local:DetailView>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodel:AddCreditorViewModel}">
-            <local:AddView></local:AddView>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type viewmodel:AboutViewModel}">
-            <local:AboutView></local:AboutView>
+        <DataTemplate DataType="{x:Type viewmodel:RegisterViewModel}">
+            <local:RegisterView></local:RegisterView>
         </DataTemplate>
 
         <Style TargetType="{x:Type ContentControl}">
@@ -36,12 +30,8 @@
         <Image x:Key="AddLink" Source="{Binding Add}"/>
         <Image x:Key="AboutLink" Source="{Binding About}"/>
     </UserControl.Resources>
-    <Grid Background="White">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0.2*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Column="0" Grid.Row="0">
+    <StackPanel Background="White">
+        <!--<Grid Grid.Column="0" Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.2*"></ColumnDefinition>
                 <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -60,8 +50,8 @@
                     BorderThickness="0" Width="64" Height="64"
                     Command="{Binding Path=AddCommand}">
             </Button>
-        </Grid>
+        </Grid>-->
         <ContentControl Grid.Row="1" Margin="20"
                 Content="{Binding Path=CurrentViewModel}"/>
-    </Grid>
+    </StackPanel>
 </UserControl>

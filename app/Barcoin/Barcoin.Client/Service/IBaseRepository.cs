@@ -9,6 +9,8 @@ namespace Barcoin.Client.Service
 
         void Add(T item);
 
-        void Delete(T item);
+        void Update(T item);
+
+        void Delete(int id);
     }
 }

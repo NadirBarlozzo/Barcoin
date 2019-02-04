@@ -36,7 +36,7 @@ namespace Barcoin.Client.ViewModel
         public MainViewModel()
         {
             RegisterCommands();
-            CurrentViewModel = ViewModelLocator.Dashboard;
+            CurrentViewModel = ViewModelLocator.Login;
         }
 
         private void RegisterCommands()

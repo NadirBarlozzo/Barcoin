@@ -72,7 +72,7 @@ namespace Barcoin.Client.ViewModel
 
         private void OnAdd(object obj)
         {
-            CreditorDataRepository repo = new CreditorDataRepository();
+            //CreditorDataRepository repo = new CreditorDataRepository();
 
             Creditor c = new Creditor()
             {
@@ -83,7 +83,7 @@ namespace Barcoin.Client.ViewModel
                 DefaultInterestRate = double.Parse(DefaultInterestRate)
             };
 
-            repo.Add(c);
+            //repo.Add(c);
 
             ViewModelLocator.Main.CurrentViewModel = ViewModelLocator.Dashboard;
         }

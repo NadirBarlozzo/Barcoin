@@ -1,28 +1,26 @@
-﻿using Barcoin.Client.Model;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using SqlKata.Compilers;
 using SqlKata.Execution;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Barcoin.Client.Helper
 {
-    public class DbHelper
+    public class DbHelper : IDbHelper
     {
         private readonly QueryFactory db;
 
         public DbHelper()
         {
-            string options = "datasource=localhost;port=3306;username=root;password=;database=barcoin;SslMode=none";
+            string options = "Host=localhost;Port=3306;User=root;Password=;Database=barcoinv2;SslMode=None";
 
             MySqlConnection connection = new MySqlConnection(options);
+            connection.Open();
 
-            db = new QueryFactory(connection, new SqlServerCompiler());
+            db = new QueryFactory(connection, new MySqlCompiler());
         }
 
-        public List<Creditor> Get()
+        public QueryFactory GetFactory()
         {
-            return db.Query().FromRaw("creditline").SelectRaw("creditorName").Get<Creditor>().ToList();
+            return db;
         }
     }
 }

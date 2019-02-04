@@ -7,3 +7,12 @@ C:\Users\wHisxaa\Desktop\Dev\CSharp\Barcoin\app\Barcoin\Barcoin.Blockchain\obj\D
 C:\Users\wHisxaa\Desktop\Dev\CSharp\Barcoin\app\Barcoin\Barcoin.Blockchain\obj\Debug\netstandard2.0\Barcoin.Blockchain.AssemblyInfo.cs
 C:\Users\wHisxaa\Desktop\Dev\CSharp\Barcoin\app\Barcoin\Barcoin.Blockchain\obj\Debug\netstandard2.0\Barcoin.Blockchain.dll
 C:\Users\wHisxaa\Desktop\Dev\CSharp\Barcoin\app\Barcoin\Barcoin.Blockchain\obj\Debug\netstandard2.0\Barcoin.Blockchain.pdb
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\app\Barcoin\Barcoin.Blockchain\bin\Debug\netstandard2.0\Barcoin.Blockchain.deps.json
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\app\Barcoin\Barcoin.Blockchain\bin\Debug\netstandard2.0\Barcoin.Blockchain.dll
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\app\Barcoin\Barcoin.Blockchain\bin\Debug\netstandard2.0\Barcoin.Blockchain.pdb
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\app\Barcoin\Barcoin.Blockchain\obj\Debug\netstandard2.0\Barcoin.Blockchain.csprojAssemblyReference.cache
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\app\Barcoin\Barcoin.Blockchain\obj\Debug\netstandard2.0\Barcoin.Blockchain.csproj.CoreCompileInputs.cache
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\app\Barcoin\Barcoin.Blockchain\obj\Debug\netstandard2.0\Barcoin.Blockchain.AssemblyInfoInputs.cache
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\app\Barcoin\Barcoin.Blockchain\obj\Debug\netstandard2.0\Barcoin.Blockchain.AssemblyInfo.cs
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\app\Barcoin\Barcoin.Blockchain\obj\Debug\netstandard2.0\Barcoin.Blockchain.dll
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\app\Barcoin\Barcoin.Blockchain\obj\Debug\netstandard2.0\Barcoin.Blockchain.pdb

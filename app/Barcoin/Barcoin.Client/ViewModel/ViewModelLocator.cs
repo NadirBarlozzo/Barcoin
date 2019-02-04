@@ -30,15 +30,23 @@ namespace Barcoin.Client.ViewModel
             get { return ServiceLocator.Current.GetInstance<AboutViewModel>(); }
         }
 
+        public static LoginViewModel Login
+        {
+            get { return ServiceLocator.Current.GetInstance<LoginViewModel>(); }
+        }
+
+        public static RegisterViewModel Register
+        {
+            get { return ServiceLocator.Current.GetInstance<RegisterViewModel>(); }
+        }
+
         public ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
             SimpleIoc.Default.Register<MainViewModel>();
-            SimpleIoc.Default.Register<DashboardViewModel>();
-            SimpleIoc.Default.Register<AddCreditorViewModel>();
-            SimpleIoc.Default.Register<AboutViewModel>();
-            SimpleIoc.Default.Register<DetailViewModel>(true);
+            SimpleIoc.Default.Register<LoginViewModel>();
+            SimpleIoc.Default.Register<RegisterViewModel>();
         }
     }
 }

@@ -26,8 +26,8 @@ namespace Barcoin.Client.ViewModel
 
         public ObservableCollection<Transaction> Transactions { get; set; }
 
-        public CreditorDataRepository RepoCreditors { get; private set; }
-        public TransactionDataRepository RepoTransactions { get; private set; }
+        //public CreditorDataRepository RepoCreditors { get; private set; }
+        //public TransactionDataRepository RepoTransactions { get; private set; }
 
         public Creditor SelectedCreditor { get; set; }
 
@@ -105,15 +105,15 @@ namespace Barcoin.Client.ViewModel
                 InterestRate = double.Parse(NewInterestRate)
             };
 
-            RepoTransactions.Add(t);
+            //RepoTransactions.Add(t);
 
             UpdateStatus();
         }
 
         private void OnSentCreditor(Creditor obj)
         {
-            RepoCreditors = new CreditorDataRepository();
-            RepoTransactions = new TransactionDataRepository();
+            //RepoCreditors = new CreditorDataRepository();
+            //RepoTransactions = new TransactionDataRepository();
 
             SelectedCreditor = obj;
             ViewModelLocator.Main.CurrentViewModel = this;
@@ -276,7 +276,7 @@ namespace Barcoin.Client.ViewModel
         private void UpdateStatus()
         {
             Transactions = new ObservableCollection<Transaction>(
-                RepoTransactions.Get(SelectedCreditor.CreditLineID)
+                //RepoTransactions.Get(SelectedCreditor.CreditLineID)
             );
             BalanceData = new ObservableCollection<Balance>();
 

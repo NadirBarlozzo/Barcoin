@@ -13,9 +13,9 @@ namespace Barcoin.Client.ViewModel
 
         public DashboardViewModel()
         {
-            CreditorDataRepository repo = new CreditorDataRepository();
+            //CreditorDataRepository repo = new CreditorDataRepository();
 
-            Creditors = new ObservableCollection<Creditor>(repo.Get());
+            //Creditors = new ObservableCollection<Creditor>(repo.Get());
 
             DetailCommand = new DelegateCommand(OnDetail);
         }
