@@ -4,9 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
              mc:Ignorable="d"
              DataContext="{Binding Source={StaticResource Locator}, Path=Login}"
              Style="{StaticResource global}"
+             Dialog:DialogParticipation.Register="{Binding}"
              Height="720"
              Width="1200"
              d:DesignHeight="720" d:DesignWidth="1200">
@@ -25,9 +27,9 @@
         <Separator Grid.Row="1" Background="DeepSkyBlue" />
         <TextBox Text="{Binding Path=Username, Mode=TwoWay}" Grid.Row="2" Height="35" Width="280" FontWeight="Bold" Controls:TextBoxHelper.Watermark="Insert username" />
         <PasswordBox Name="pass" PasswordChar="*" Grid.Row="3" Height="35" Width="280" FontWeight="Bold" Controls:TextBoxHelper.Watermark="Insert password" />
-        <Border Grid.Row="6" Height="35" Width="280" BorderBrush="Red" BorderThickness="2" Visibility="{Binding Path=IsVisible}">
-            <Grid Background="Red" Opacity="0.2">
-                <Label Content="{Binding Path=Error, Mode=TwoWay}" VerticalContentAlignment="Center" Foreground="Black" VerticalAlignment="Center"></Label>
+        <Border Grid.Row="6" Height="50" Width="280" BorderBrush="Red" BorderThickness="2" Visibility="{Binding Path=ErrorVisibility}">
+            <Grid Background="#20FF0000">
+                <TextBlock Text="{Binding Path=Error}" Margin="5" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" TextAlignment="Center"></TextBlock>
             </Grid>
         </Border>
         <Button Grid.Row="7" Margin="10" Height="30" Width="130" HorizontalAlignment="Left" Content="Sign in" Command="{Binding Path=LoginCommand}" CommandParameter="{Binding ElementName=pass}"></Button>

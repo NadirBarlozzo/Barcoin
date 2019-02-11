@@ -69,14 +69,14 @@
     <Reference Include="MahApps.Metro, Version=1.6.5.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.6.5\lib\net46\MahApps.Metro.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=8.0.14.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.8.0.14\lib\net452\MySql.Data.dll</HintPath>
+    <Reference Include="MySql.Data, Version=8.0.15.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.15\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="PdfSharp, Version=1.32.3057.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.dll</HintPath>
+    <Reference Include="PdfSharp, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.dll</HintPath>
     </Reference>
-    <Reference Include="PdfSharp.Charting, Version=1.32.3057.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.Charting.dll</HintPath>
+    <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.50.5147\lib\net20\PdfSharp.Charting.dll</HintPath>
     </Reference>
     <Reference Include="QueryBuilder, Version=1.1.6.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SqlKata.1.1.6\lib\net45\QueryBuilder.dll</HintPath>
@@ -126,8 +126,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Enum\Modality.cs" />
-    <Compile Include="Helper\DbHelper.cs" />
-    <Compile Include="Helper\IDbHelper.cs" />
     <Compile Include="Helper\MVVM\BindableBase.cs" />
     <Compile Include="Helper\MVVM\DelegateCommand.cs" />
     <Compile Include="Helper\MVVM\DesignerLibrary.cs" />
@@ -151,11 +149,7 @@
     <Compile Include="Model\Balance.cs" />
     <Compile Include="Model\Creditor.cs" />
     <Compile Include="Model\Transaction.cs" />
-    <Compile Include="Model\User.cs" />
     <Compile Include="Service\ApplicationVersionService.cs" />
-    <Compile Include="Service\IBaseRepository.cs" />
-    <Compile Include="Service\IUserDataRepository.cs" />
-    <Compile Include="Service\UserDataRepository.cs" />
     <Compile Include="SplashScreenWindow.xaml.cs">
       <DependentUpon>SplashScreenWindow.xaml</DependentUpon>
     </Compile>

@@ -1,6 +1,7 @@
-﻿using Barcoin.Blockchain.Cryptography;
-using Barcoin.Client.Model;
-using Barcoin.Client.Service;
+﻿using Barcoin.Blockchain.Helper;
+using Barcoin.Blockchain.Model;
+using Barcoin.Blockchain.Service;
+using MahApps.Metro.Controls.Dialogs;
 using MVVM;
 using System;
 using System.Text;
@@ -11,10 +12,28 @@ namespace Barcoin.Client.ViewModel
 {
     public class RegisterViewModel : BindableBase
     {
+        private readonly IDialogCoordinator dialogCoordinator;
+
         public IDelegateCommand GotoLoginCommand { get; private set; }
         public IDelegateCommand RegisterCommand { get; private set; }
 
         private UserDataRepository userRepo;
+
+        private string error;
+
+        public string Error
+        {
+            get { return error; }
+            set { SetProperty(ref error, value); }
+        }
+
+        private Visibility errorVisibility = Visibility.Hidden;
+
+        public Visibility ErrorVisibility
+        {
+            get { return errorVisibility; }
+            set { SetProperty(ref errorVisibility, value); }
+        }
 
         private string firstname;
 
@@ -42,6 +61,8 @@ namespace Barcoin.Client.ViewModel
 
         public RegisterViewModel()
         {
+            dialogCoordinator = DialogCoordinator.Instance;
+
             GotoLoginCommand = new DelegateCommand(OnGotoLogin);
             RegisterCommand = new DelegateCommand(OnRegister, CanRegister);
 
@@ -57,24 +78,30 @@ namespace Barcoin.Client.ViewModel
         {
             if (string.IsNullOrWhiteSpace(Firstname))
             {
+                Error = "Firstname field it's blank.";
+                ErrorVisibility = Visibility.Visible;
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(Lastname))
             {
+                Error = "Lastname field it's blank.";
+                ErrorVisibility = Visibility.Visible;
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(Username))
             {
+                Error = "Username field it's blank.";
+                ErrorVisibility = Visibility.Visible;
                 return;
             }
 
             PasswordBox passwordBox = obj as PasswordBox;
             string password = passwordBox.Password;
 
-            var salt = Hash.GetSalt();
-            var passwordHash = Hash.ComputeHashSha256(
+            var salt = HashUtils.GetSalt();
+            var passwordHash = HashUtils.ComputeHashSha256(
                 Encoding.UTF8.GetBytes(
                     password+
                     Convert.ToBase64String(salt)
@@ -85,7 +112,7 @@ namespace Barcoin.Client.ViewModel
 
             Guid gAddress = Guid.NewGuid();
 
-            User current = new User
+            User usr = new User
             {
                 Firstname = Firstname,
                 Lastname = Lastname,
@@ -96,7 +123,13 @@ namespace Barcoin.Client.ViewModel
                 Timestamp = DateTime.Now
             };
 
-            userRepo.Add(current);
+            userRepo.Add(usr);
+
+            dialogCoordinator.ShowMessageAsync(
+                this,
+                "Register Successful",
+                "Your private key has been generated and you should keep it for yourself at ALL times."
+            );
         }
 
         private bool CanRegister(object obj)

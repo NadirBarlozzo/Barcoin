@@ -51,11 +51,11 @@
             <task id="10" name="analisi dei requisiti" meeting="false" start="2019-01-22" duration="1" complete="0" expand="true"/>
             <task id="12" name="documento specifica completo" color="#8cb6ce" meeting="true" start="2019-01-22" duration="0" complete="0" expand="true"/>
         </task>
-        <task id="1" name="Progettazione" color="#0000cc" meeting="false" start="2019-01-22" duration="2" complete="0" expand="true">
+        <task id="1" name="Progettazione" color="#0000cc" meeting="false" start="2019-01-22" duration="6" complete="0" expand="true">
             <task id="73" name="protocollo di progetto" meeting="false" start="2019-01-22" duration="2" complete="0" expand="true"/>
             <task id="16" name="modifica schema E-R database" color="#0000cc" meeting="false" start="2019-01-23" duration="1" complete="0" expand="true"/>
             <task id="18" name="disegnare interfacce" meeting="false" start="2019-01-23" duration="1" complete="0" expand="true"/>
-            <task id="60" name="struttura blockchain" meeting="false" start="2019-01-23" duration="1" complete="0" expand="true"/>
+            <task id="60" name="struttura blockchain" meeting="false" start="2019-01-23" duration="5" complete="0" expand="true"/>
         </task>
         <task id="2" name="Implementazione" color="#ff9900" meeting="false" start="2019-01-28" duration="24" complete="0" expand="true">
             <task id="24" name="modifica del database per multiutenza" color="#ff9900" meeting="false" start="2019-01-28" duration="1" complete="0" expand="true"/>
