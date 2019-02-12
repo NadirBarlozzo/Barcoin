@@ -1,6 +1,6 @@
 # Barcoin
 
-## Status: **In development**
+### Status: In development
 
 ## Purpose
 
