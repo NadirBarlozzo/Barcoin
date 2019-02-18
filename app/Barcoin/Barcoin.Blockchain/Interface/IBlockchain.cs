@@ -6,6 +6,6 @@ namespace Barcoin.Blockchain.Interface
     {
         void AcceptBlock(Block block);
 
-        void IsValid();
+        bool IsValid();
     }
 }

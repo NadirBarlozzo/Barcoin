@@ -15,6 +15,9 @@
         <DataTemplate DataType="{x:Type viewmodel:RegisterViewModel}">
             <local:RegisterView></local:RegisterView>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:DashboardViewModel}">
+            <local:DashboardView></local:DashboardView>
+        </DataTemplate>
 
         <Style TargetType="{x:Type ContentControl}">
             <Setter Property="Template">

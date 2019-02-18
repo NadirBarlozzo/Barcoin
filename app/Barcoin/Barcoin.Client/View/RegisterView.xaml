@@ -9,10 +9,8 @@
              DataContext="{Binding Source={StaticResource Locator}, Path=Register}"
              Style="{StaticResource global}"
              Dialog:DialogParticipation.Register="{Binding}"
-             Height="720"
-             Width="1200"
-             d:DesignHeight="720" d:DesignWidth="1200">
-    <Grid HorizontalAlignment="Center" Margin="0 30 0 180">
+             d:DesignHeight="720" d:DesignWidth="1280">
+    <Grid HorizontalAlignment="Center" Margin="0 30 0 180" MinHeight="500">
         <Grid.RowDefinitions>
             <RowDefinition Height=".7*"/>
             <RowDefinition Height=".4*"/>

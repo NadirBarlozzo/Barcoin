@@ -6,7 +6,6 @@ namespace Barcoin.Blockchain.Model
 {
     public class Blockchain : IBlockchain
     {
-
         public List<Block> Blocks { get; set; }
 
         public BlockRepository BlockRepository { get; set; }
@@ -20,12 +19,22 @@ namespace Barcoin.Blockchain.Model
 
         public void AcceptBlock(Block block)
         {
-            
+            BlockRepository.Add(block);
         }
 
-        public void IsValid()
+        public bool IsValid()
         {
-            
+            bool isValid = true;
+
+            foreach (Block block in Blocks)
+            {
+                if (!block.IsValid())
+                {
+                    isValid = false;
+                }
+            }
+
+            return isValid;
         }
     }
 }

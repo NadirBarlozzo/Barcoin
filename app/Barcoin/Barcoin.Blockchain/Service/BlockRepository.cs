@@ -3,19 +3,20 @@ using Barcoin.Blockchain.Model;
 using SqlKata.Execution;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Barcoin.Blockchain.Service
 {
     public class BlockRepository : IBlockRepository
     {
-        private readonly QueryFactory db;
+        private QueryFactory db;
 
         public BlockRepository()
         {
             DbHelper helper = new DbHelper();
-
             db = helper.GetFactory();
+            Debug.WriteLine(db.Connection.State);
         }
 
         public int Add(Block item)

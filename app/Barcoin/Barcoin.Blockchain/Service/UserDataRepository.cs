@@ -13,7 +13,6 @@ namespace Barcoin.Blockchain.Service
         public UserDataRepository()
         {
             DbHelper helper = new DbHelper();
-
             db = helper.GetFactory();
         }
 

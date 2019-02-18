@@ -14,7 +14,6 @@ namespace Barcoin.Blockchain.Service
         public TransactionRepository()
         {
             DbHelper helper = new DbHelper();
-
             db = helper.GetFactory();
         }
 

@@ -47,6 +47,7 @@ namespace Barcoin.Client.ViewModel
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<LoginViewModel>();
             SimpleIoc.Default.Register<RegisterViewModel>();
+            SimpleIoc.Default.Register<DashboardViewModel>();
         }
     }
 }

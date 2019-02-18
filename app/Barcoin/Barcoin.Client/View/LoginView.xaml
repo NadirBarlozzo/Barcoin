@@ -9,10 +9,8 @@
              DataContext="{Binding Source={StaticResource Locator}, Path=Login}"
              Style="{StaticResource global}"
              Dialog:DialogParticipation.Register="{Binding}"
-             Height="720"
-             Width="1200"
-             d:DesignHeight="720" d:DesignWidth="1200">
-    <Grid HorizontalAlignment="Center" Margin="0 30 0 180">
+             d:DesignHeight="720" d:DesignWidth="1280">
+    <Grid HorizontalAlignment="Center" Margin="0 30 0 180" MinHeight="500">
         <Grid.RowDefinitions>
             <RowDefinition Height=".7*"/>
             <RowDefinition Height=".4*"/>
@@ -25,8 +23,8 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" FontSize="40" TextAlignment="Center" Text="Login" Width="300"/>
         <Separator Grid.Row="1" Background="DeepSkyBlue" />
-        <TextBox Text="{Binding Path=Username, Mode=TwoWay}" Grid.Row="2" Height="35" Width="280" FontWeight="Bold" Controls:TextBoxHelper.Watermark="Insert username" />
-        <PasswordBox Name="pass" PasswordChar="*" Grid.Row="3" Height="35" Width="280" FontWeight="Bold" Controls:TextBoxHelper.Watermark="Insert password" />
+        <TextBox Text="{Binding Path=Username, Mode=TwoWay}" Margin="0,10,0,10" Grid.Row="2" Height="35" Width="280" FontWeight="Bold" Controls:TextBoxHelper.Watermark="Insert username" />
+        <PasswordBox Name="pass" Margin="0,10,0,10" PasswordChar="*" Grid.Row="3" Height="35" Width="280" FontWeight="Bold" Controls:TextBoxHelper.Watermark="Insert password" />
         <Border Grid.Row="6" Height="50" Width="280" BorderBrush="Red" BorderThickness="2" Visibility="{Binding Path=ErrorVisibility}">
             <Grid Background="#20FF0000">
                 <TextBlock Text="{Binding Path=Error}" Margin="5" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" TextAlignment="Center"></TextBlock>

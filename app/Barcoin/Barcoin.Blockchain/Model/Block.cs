@@ -24,23 +24,9 @@ namespace Barcoin.Blockchain.Model
 
         public DateTime Timestamp { get; set; }
 
-        public Block()
-        {
-            TransactionPoolRepository tpr = new TransactionPoolRepository();
-
-            Pool = tpr.Get(PoolId);
-
-            if (IsValid())
-            {
-                ComputeHash();
-            }
-        }
-
         public void ComputeHash()
         {
             string body = "";
-
-            Debug.WriteLine(Pool.Queue.Count);
 
             int records = Pool.Queue.Count;
 

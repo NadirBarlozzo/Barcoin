@@ -1,10 +1,11 @@
 ﻿using MySql.Data.MySqlClient;
 using SqlKata.Compilers;
 using SqlKata.Execution;
+using System.Diagnostics;
 
 namespace Barcoin.Blockchain.Helper
 {
-    public class DbHelper : IDbHelper
+    public class DbHelper
     {
         private readonly QueryFactory db;
 

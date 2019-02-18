@@ -95,11 +95,14 @@ namespace Barcoin.Client.ViewModel
             if(Convert.ToBase64String(passwordHash).Equals(usr.Password))
             {
                 DigitalSignatureUtils.AssignOrRetrieveKeyPair(usr.Address);
-                byte[] data = { 59, 4, 248, 102, 77, 97, 142, 201, 210, 12, 224, 93, 25, 41, 100, 197, 213, 134, 130, 135 };
-                var hash = HashUtils.ComputeHashSha256(data);
-                var signature = Convert.FromBase64String("loNBskecmXKgr25oQEHoXuBgPcIw07WNCZfKOuQecX/TuKt3cFLwmMJRfds2W9DV05DA3qPaQS4u92OgykXNeqGIc924xJ7yxKHZ8SHdGhV/KanElYwHJ/WBOZreXEYcSR3W2ESP2jpLygdDiOq/caZS2pNL33a4a8cW5XZNJB0=");
-                Debug.WriteLine(Convert.ToBase64String(signature));
-                MessageBox.Show(DigitalSignatureUtils.VerifySignature(hash, signature).ToString());
+
+                dialogCoordinator.ShowMessageAsync(
+                this,
+                    "Login Successful",
+                    "You will be logged in shortly."
+                );
+
+                ViewModelLocator.Main.CurrentViewModel = ViewModelLocator.Dashboard;
             }
             else
             {

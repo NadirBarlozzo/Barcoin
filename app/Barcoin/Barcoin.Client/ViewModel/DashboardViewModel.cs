@@ -1,5 +1,4 @@
 ﻿using Barcoin.Client.Model;
-using Barcoin.Client.Service;
 using MVVM;
 using System.Collections.ObjectModel;
 

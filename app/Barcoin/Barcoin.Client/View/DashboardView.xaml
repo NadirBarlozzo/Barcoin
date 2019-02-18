@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       DataContext="{Binding Source={StaticResource Locator}, Path=Dashboard}"
       mc:Ignorable="d" 
-      d:DesignHeight="700" d:DesignWidth="1080">
+      d:DesignHeight="720" d:DesignWidth="1280">
     <UserControl.Resources>
         <DataTemplate x:Key="CreditorTemplate">
             <Button ToolTip="Detail" Background="DodgerBlue" 

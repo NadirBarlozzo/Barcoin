@@ -79,6 +79,10 @@ namespace Barcoin.Tests
                 Timestamp = DateTime.Now
             };
 
+            b.Pool = tpr.Get(poolId);
+
+            b.ComputeHash();
+
             b.Signature = Convert.ToBase64String(
                 DigitalSignatureUtils.SignData(
                     Convert.FromBase64String(
@@ -96,7 +100,7 @@ namespace Barcoin.Tests
         public void ValidateBlockchain()
         {
             BlockRepository br = new BlockRepository();
-
+            
             List<Block> blocks = br.Get();
 
             bool isValid = true;
