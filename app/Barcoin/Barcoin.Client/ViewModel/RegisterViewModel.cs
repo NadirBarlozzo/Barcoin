@@ -17,7 +17,7 @@ namespace Barcoin.Client.ViewModel
         public IDelegateCommand GotoLoginCommand { get; private set; }
         public IDelegateCommand RegisterCommand { get; private set; }
 
-        private UserDataRepository userRepo;
+        private UserRepository userRepo;
 
         private string error;
 
@@ -66,7 +66,7 @@ namespace Barcoin.Client.ViewModel
             GotoLoginCommand = new DelegateCommand(OnGotoLogin);
             RegisterCommand = new DelegateCommand(OnRegister, CanRegister);
 
-            userRepo = new UserDataRepository();
+            userRepo = new UserRepository();
         }
 
         private void OnGotoLogin(object obj)

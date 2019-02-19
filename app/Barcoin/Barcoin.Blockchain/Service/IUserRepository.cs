@@ -2,7 +2,7 @@
 
 namespace Barcoin.Blockchain.Service
 {
-    public interface IUserDataRepository : IBaseRepository<User>
+    public interface IUserRepository : IBaseRepository<User>
     {
         User Get(string username);
 

@@ -6,6 +6,8 @@ namespace Barcoin.Blockchain.Interface
     {
         void ComputeHash();
 
+        void AssignPool();
+
         bool IsValid(bool verbose);
     }
 }

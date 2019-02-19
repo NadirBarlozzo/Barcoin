@@ -7,39 +7,61 @@
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1280">
     <UserControl.Resources>
-        <DataTemplate x:Key="CreditorTemplate">
-            <Button ToolTip="Detail" Background="DodgerBlue" 
-                        Command="{Binding Path=DataContext.DetailCommand,
-                        RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" CommandParameter="{Binding}">
-                <Grid Height="200" Width="300">
+        <DataTemplate x:Key="TransactionTemplate">
+            <Border BorderBrush="Black" BorderThickness="1">
+                <Grid Margin="10">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="0.3*"></RowDefinition>
-                        <RowDefinition Height="0.3*"></RowDefinition>
-                        <RowDefinition Height="0.7*"></RowDefinition>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"
-                        FontSize="30" Text="{Binding Path=CreditLineID}"></TextBlock>
-                    <StackPanel Orientation="Horizontal" Grid.Row="1">
-                        <TextBlock VerticalAlignment="Center" Foreground="White" Padding="20,20,3,20"
-                            FontSize="20" Text="{Binding Path=CreditorName}"></TextBlock>
-                        <TextBlock VerticalAlignment="Center" Foreground="White" Padding="3,20,20,20"
-                                   FontSize="20" Text="{Binding Path=CreditorSurname}"></TextBlock>
-                    </StackPanel>
-                    <TextBlock Grid.Row="2" Padding="20" Foreground="White" TextWrapping="Wrap"
-                        FontSize="15" Text="{Binding Path=Description}"></TextBlock>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock FontSize="15" Grid.Row="0" FontWeight="Bold" Text="ID"/>
+                    <TextBlock FontSize="15" Margin="20,0,0,0" Grid.Row="0" Grid.Column="1"  Text="{Binding Path=Id}"/>
+                    
+                    <TextBlock FontSize="15" Grid.Row="1" FontWeight="Bold" Text="Amount"/>
+                    <TextBlock FontSize="15" Margin="20,0,0,0" Grid.Row="1" Grid.Column="1"  Text="{Binding Path=Amount, StringFormat={}BRC {0}}"/>
+
+                    <TextBlock FontSize="15" Grid.Row="2" FontWeight="Bold" Text="Date"/>
+                    <TextBlock FontSize="15" Margin="20,0,0,0" Grid.Row="2" Grid.Column="1" Text="{Binding Path=Timestamp, StringFormat=yyyy/MM/dd}"/>
                 </Grid>
-            </Button>
+            </Border>
         </DataTemplate>
+        <Image x:Key="SignoutImage" Source="..\Resource\signout.png"/>
     </UserControl.Resources>
     <Grid>
-        <ListBox Background="Transparent" BorderThickness="0" ItemTemplate="{StaticResource CreditorTemplate}"
-                 ItemsSource="{Binding Path=Creditors}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="12*"/>
+        </Grid.RowDefinitions>
+
+        <Grid VerticalAlignment="Center" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="1.1*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="{StaticResource SignoutImage}" Background="Transparent" BorderThickness="0" Command="{Binding Path=SignoutCommand}" Grid.Column="0" Width="64" Height="64"/>
+            <TextBlock Margin="20,0,0,0" FontSize="25" VerticalAlignment="Center" Text="{Binding Path=Fullname}" Grid.Column="1"/>
+            <TextBlock Margin="20,0,0,0" FontSize="25" Foreground="DeepSkyBlue" VerticalAlignment="Center" FontWeight="DemiBold" Text="{Binding Path=Balance, StringFormat={}BRC {0}}" Grid.Column="2" />
+        </Grid>
+
+        <ListBox Grid.Row="1" Margin="30,30,0,0" HorizontalAlignment="Left" Background="Transparent" BorderThickness="0" ItemTemplate="{StaticResource TransactionTemplate}"
+            ItemsSource="{Binding Path=Transactions}"/>
+
+        <!--<ListBox Background="Transparent" BorderThickness="0" ItemTemplate="{StaticResource CreditorTemplate}"
+                 ItemsSource="{Binding Path=Creditors}" Grid.RowSpan="2">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel MaxWidth="950">
                     </WrapPanel>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
-        </ListBox>
+        </ListBox>-->
     </Grid>
 </UserControl>

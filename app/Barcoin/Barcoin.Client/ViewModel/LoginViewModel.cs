@@ -4,7 +4,6 @@ using Barcoin.Blockchain.Service;
 using MahApps.Metro.Controls.Dialogs;
 using MVVM;
 using System;
-using System.Diagnostics;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,7 +17,7 @@ namespace Barcoin.Client.ViewModel
         public IDelegateCommand GotoRegisterCommand { get; private set; }
         public IDelegateCommand LoginCommand { get; private set; }
 
-        private UserDataRepository userRepo;
+        private UserRepository userRepo;
 
         private string error;
 
@@ -54,7 +53,7 @@ namespace Barcoin.Client.ViewModel
             GotoRegisterCommand = new DelegateCommand(OnGotoRegister);
             LoginCommand = new DelegateCommand(OnLogin, CanLogin);
 
-            userRepo = new UserDataRepository();
+            userRepo = new UserRepository();
         }
 
         private void OnGotoRegister(object obj)
@@ -71,9 +70,9 @@ namespace Barcoin.Client.ViewModel
                 return;
             }
 
-            User usr = userRepo.Get(Username);
+            User user = userRepo.Get(Username);
 
-            if(usr == null)
+            if(user == null)
             {
                 Error = "Invalid credentials, double check your username and password.";
                 ErrorVisibility = Visibility.Visible;
@@ -86,23 +85,23 @@ namespace Barcoin.Client.ViewModel
             var passwordHash = HashUtils.ComputeHashSha256(
                 Encoding.UTF8.GetBytes(
                     password +
-                    usr.Salt
+                    user.Salt
                 )
             );
 
             password = string.Empty;
 
-            if(Convert.ToBase64String(passwordHash).Equals(usr.Password))
+            if(Convert.ToBase64String(passwordHash).Equals(user.Password))
             {
-                DigitalSignatureUtils.AssignOrRetrieveKeyPair(usr.Address);
-
                 dialogCoordinator.ShowMessageAsync(
-                this,
+                    this,
                     "Login Successful",
-                    "You will be logged in shortly."
+                    "You are now signed into your profile."
                 );
 
                 ViewModelLocator.Main.CurrentViewModel = ViewModelLocator.Dashboard;
+
+                Messenger.Default.Send(user);
             }
             else
             {

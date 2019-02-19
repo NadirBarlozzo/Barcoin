@@ -15,16 +15,6 @@ namespace Barcoin.Client.ViewModel
             get { return ServiceLocator.Current.GetInstance<DashboardViewModel>(); }
         }
 
-        public static DetailViewModel Detail
-        {
-            get { return ServiceLocator.Current.GetInstance<DetailViewModel>(); }
-        }
-
-        public static AddCreditorViewModel Add
-        {
-            get { return ServiceLocator.Current.GetInstance<AddCreditorViewModel>(); }
-        }
-
         public static AboutViewModel About
         {
             get { return ServiceLocator.Current.GetInstance<AboutViewModel>(); }

@@ -6,11 +6,11 @@ using SqlKata.Execution;
 
 namespace Barcoin.Blockchain.Service
 {
-    public class UserDataRepository : IUserDataRepository
+    public class UserRepository : IUserRepository
     {
         private readonly QueryFactory db;
 
-        public UserDataRepository()
+        public UserRepository()
         {
             DbHelper helper = new DbHelper();
             db = helper.GetFactory();

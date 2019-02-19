@@ -3,7 +3,6 @@ using Barcoin.Blockchain.Interface;
 using Barcoin.Blockchain.Service;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Text;
 
 namespace Barcoin.Blockchain.Model
@@ -24,6 +23,14 @@ namespace Barcoin.Blockchain.Model
 
         public DateTime Timestamp { get; set; }
 
+        public void AssignPool()
+        {
+            TransactionPoolRepository poolRepo = new TransactionPoolRepository();
+
+            Pool = poolRepo.Get(PoolId);
+            Pool.QueueUp();
+        }
+
         public void ComputeHash()
         {
             string body = "";
@@ -32,7 +39,7 @@ namespace Barcoin.Blockchain.Model
 
             for (int i = 0; i < records; i++)
             {
-                string thash = Pool.Queue.Dequeue().ComputeHash();
+                string thash = Pool.GetFirst().ComputeHash();
 
                 body += thash;
             }
@@ -52,9 +59,9 @@ namespace Barcoin.Blockchain.Model
 
         public bool IsValid(bool verbose = false)
         {
-            BlockRepository br = new BlockRepository();
+            BlockRepository blockRepo = new BlockRepository();
 
-            List<Block> blocks = br.Get();
+            List<Block> blocks = blockRepo.Get();
 
             int index = blocks.FindIndex(x => x.Id == Id);
 

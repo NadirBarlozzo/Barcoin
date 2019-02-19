@@ -7,6 +7,8 @@ namespace Barcoin.Blockchain.Interface
     {
         void Add(Transaction transaction);
 
+        void QueueUp();
+
         Transaction GetFirst();
     }
 }

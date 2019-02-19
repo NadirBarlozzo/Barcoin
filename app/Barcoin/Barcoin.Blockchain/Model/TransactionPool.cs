@@ -13,7 +13,7 @@ namespace Barcoin.Blockchain.Model
 
         public DateTime Timestamp { get; set; }
 
-        public TransactionPool()
+        public void QueueUp()
         {
             Queue = new Queue<Transaction>();
 

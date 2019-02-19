@@ -1,6 +1,7 @@
 ﻿using Barcoin.Blockchain.Interface;
 using Barcoin.Blockchain.Service;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Barcoin.Blockchain.Model
 {
@@ -15,6 +16,11 @@ namespace Barcoin.Blockchain.Model
             BlockRepository = new BlockRepository();
 
             Blocks = BlockRepository.Get();
+
+            foreach (Block block in Blocks)
+            {
+                block.AssignPool();
+            }
         }
 
         public void AcceptBlock(Block block)
@@ -35,6 +41,23 @@ namespace Barcoin.Blockchain.Model
             }
 
             return isValid;
+        }
+
+        public ObservableCollection<Transaction> GetUserRelevantTransactions(int userId)
+        {
+            ObservableCollection<Transaction> transactions = new ObservableCollection<Transaction>();
+
+            foreach(Block block in Blocks)
+            {
+                Transaction t = block.Pool.GetFirst();
+
+                if (t.RecipientId == userId || t.SenderId == userId)
+                {
+                    transactions.Add(t);
+                }
+            }
+
+            return transactions;
         }
     }
 }
