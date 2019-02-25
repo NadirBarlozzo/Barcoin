@@ -34,6 +34,11 @@ namespace Barcoin.Blockchain.Model
 
         public Transaction GetFirst()
         {
+            if(Queue.Count == 0)
+            {
+                QueueUp();
+            }
+
             return Queue.Dequeue();
         }
     }

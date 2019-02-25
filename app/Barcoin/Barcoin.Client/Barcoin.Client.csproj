@@ -125,7 +125,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Enum\Modality.cs" />
+    <Compile Include="Helper\HashPrefixValueConverter.cs" />
     <Compile Include="Helper\MVVM\BindableBase.cs" />
     <Compile Include="Helper\MVVM\DelegateCommand.cs" />
     <Compile Include="Helper\MVVM\DesignerLibrary.cs" />
@@ -146,10 +146,9 @@
     <Compile Include="Helper\MVVM\ViewBindableBase.cs" />
     <Compile Include="Helper\MVVM\WeakAction.cs" />
     <Compile Include="Helper\MVVM\WeakActionGeneric.cs" />
-    <Compile Include="Model\Balance.cs" />
-    <Compile Include="Model\Creditor.cs" />
-    <Compile Include="Model\Transaction.cs" />
+    <Compile Include="Model\CustomTransaction.cs" />
     <Compile Include="Service\ApplicationVersionService.cs" />
+    <Compile Include="Service\ChartSeriesRepository.cs" />
     <Compile Include="SplashScreenWindow.xaml.cs">
       <DependentUpon>SplashScreenWindow.xaml</DependentUpon>
     </Compile>

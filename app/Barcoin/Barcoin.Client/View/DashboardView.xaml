@@ -3,13 +3,25 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Barcoin.Client.Helper"
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       DataContext="{Binding Source={StaticResource Locator}, Path=Dashboard}"
       mc:Ignorable="d" 
       d:DesignHeight="720" d:DesignWidth="1280">
     <UserControl.Resources>
+        <local:HashPrefixValueConverter x:Key="PreConverter"/>
+        <Style TargetType="ListBoxItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <ContentPresenter />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <DataTemplate x:Key="TransactionTemplate">
-            <Border BorderBrush="Black" BorderThickness="1">
-                <Grid Margin="10">
+            <Border Margin="0,0,0,5" Padding="15" BorderBrush="Black" BorderThickness="1" Background="{Binding Path=Color}">
+                <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
@@ -19,28 +31,47 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock FontSize="15" Grid.Row="0" FontWeight="Bold" Text="ID"/>
-                    <TextBlock FontSize="15" Margin="20,0,0,0" Grid.Row="0" Grid.Column="1"  Text="{Binding Path=Id}"/>
-                    
-                    <TextBlock FontSize="15" Grid.Row="1" FontWeight="Bold" Text="Amount"/>
-                    <TextBlock FontSize="15" Margin="20,0,0,0" Grid.Row="1" Grid.Column="1"  Text="{Binding Path=Amount, StringFormat={}BRC {0}}"/>
+                    <TextBlock FontSize="15" Grid.Row="0" FontWeight="Bold" Text="Identifier"/>
+                    <TextBlock FontSize="15" Margin="20,0,10,0" Grid.Row="0" Grid.Column="1"  Text="{Binding Path=Id}"/>
 
-                    <TextBlock FontSize="15" Grid.Row="2" FontWeight="Bold" Text="Date"/>
-                    <TextBlock FontSize="15" Margin="20,0,0,0" Grid.Row="2" Grid.Column="1" Text="{Binding Path=Timestamp, StringFormat=yyyy/MM/dd}"/>
+                    <TextBlock FontSize="15" Grid.Row="1" FontWeight="Bold" Text="Sender"/>
+                    <TextBlock FontSize="15" Margin="20,0,10,0" Grid.Row="1" Grid.Column="1"  Text="{Binding Path=Sender}"/>
+
+                    <TextBlock FontSize="15" Grid.Row="2" FontWeight="Bold" Text="Recipient"/>
+                    <TextBlock FontSize="15" Margin="20,0,10,0" Grid.Row="2" Grid.Column="1"  Text="{Binding Path=Recipient}"/>
+                    
+                    <TextBlock FontSize="15" Grid.Row="0" Grid.Column="2" FontWeight="Bold" Text="Hash"/>
+                    <TextBlock FontSize="15" Margin="20,0,0,0" Grid.Row="0" Grid.Column="3"
+                        Text="{Binding Path=Hash, Converter={StaticResource PreConverter}, ConverterParameter=8, StringFormat={}{0}...}"/>
+                    
+                    <TextBlock FontSize="15" Grid.Row="1" Grid.Column="2" FontWeight="Bold" Text="Amount"/>
+                    <TextBlock FontSize="15" Margin="20,0,10,0" Grid.Row="1" Grid.Column="3"  Text="{Binding Path=Amount, StringFormat={}BRC {0}}"/>
+
+                    <TextBlock FontSize="15" Grid.Row="2" Grid.Column="2" FontWeight="Bold" Text="Date"/>
+                    <TextBlock FontSize="15" Margin="20,0,10,0" Grid.Row="2" Grid.Column="3" Text="{Binding Path=Timestamp}"/>
                 </Grid>
             </Border>
         </DataTemplate>
+        
         <Image x:Key="SignoutImage" Source="..\Resource\signout.png"/>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="12*"/>
+            <RowDefinition Height=".3*"/>
+            <RowDefinition Height=".3*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid VerticalAlignment="Center" Grid.Row="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.6*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.1*"/>
                 <ColumnDefinition Width="0.3*"/>
@@ -51,8 +82,21 @@
             <TextBlock Margin="20,0,0,0" FontSize="25" Foreground="DeepSkyBlue" VerticalAlignment="Center" FontWeight="DemiBold" Text="{Binding Path=Balance, StringFormat={}BRC {0}}" Grid.Column="2" />
         </Grid>
 
-        <ListBox Grid.Row="1" Margin="30,30,0,0" HorizontalAlignment="Left" Background="Transparent" BorderThickness="0" ItemTemplate="{StaticResource TransactionTemplate}"
-            ItemsSource="{Binding Path=Transactions}"/>
+        <TextBlock Grid.Row="1" Margin="30,30,0,10" FontSize="20" Text="Your transactions:"/>
+
+        <ListBox Grid.Row="2" Margin="30,10,0,0" HorizontalAlignment="Left" Background="Transparent" BorderThickness="0" ItemTemplate="{StaticResource TransactionTemplate}"
+            ItemsSource="{Binding Path=CustomTransactions}"/>
+
+        <TextBlock Grid.Row="1" Grid.Column="1" Margin="0,30,0,10" FontSize="20" Text="Relevant graphs:"/>
+
+        <lvc:CartesianChart Grid.Row="2" Grid.Column="1" Series="{Binding ChartSeriesRepo.TransactionsDailyData}" LegendLocation="Right">
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="Count"></lvc:Axis>
+            </lvc:CartesianChart.AxisY>
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title="Dates" Labels="{Binding ChartSeriesRepo.TransactionsDailyLabels}"></lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+        </lvc:CartesianChart>
 
         <!--<ListBox Background="Transparent" BorderThickness="0" ItemTemplate="{StaticResource CreditorTemplate}"
                  ItemsSource="{Binding Path=Creditors}" Grid.RowSpan="2">
