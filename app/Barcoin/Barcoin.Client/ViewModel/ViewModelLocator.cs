@@ -30,6 +30,11 @@ namespace Barcoin.Client.ViewModel
             get { return ServiceLocator.Current.GetInstance<RegisterViewModel>(); }
         }
 
+        public static SendViewModel Send
+        {
+            get { return ServiceLocator.Current.GetInstance<SendViewModel>(); }
+        }
+
         public ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
@@ -38,6 +43,7 @@ namespace Barcoin.Client.ViewModel
             SimpleIoc.Default.Register<LoginViewModel>();
             SimpleIoc.Default.Register<RegisterViewModel>();
             SimpleIoc.Default.Register<DashboardViewModel>();
+            SimpleIoc.Default.Register<SendViewModel>();
         }
     }
 }

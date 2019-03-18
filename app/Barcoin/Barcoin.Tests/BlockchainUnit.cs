@@ -18,7 +18,7 @@ namespace Barcoin.Tests
         public void SignatureValidationBetweenTwoUsers()
         {
             //User1
-            DigitalSignatureUtils.AssignOrRetrieveKeyPair("addr1");
+            DigitalSignatureUtils.AssignKeyPair("addr1");
 
             //User1 public key
             var pubKey = DigitalSignatureUtils.RetrievePublicKey();
@@ -30,7 +30,7 @@ namespace Barcoin.Tests
             var signature = DigitalSignatureUtils.SignData(hash);
 
             //User2
-            DigitalSignatureUtils.AssignOrRetrieveKeyPair("addr2");
+            DigitalSignatureUtils.AssignKeyPair("addr2");
 
             //Data validation
             var isValid = DigitalSignatureUtils.VerifySignature(hash, signature, pubKey);
@@ -39,9 +39,19 @@ namespace Barcoin.Tests
         }
 
         [TestMethod]
+        public void SignatureKeyCheck()
+        {
+            DigitalSignatureUtils.RetrieveKeyPair("addr1");
+
+            var pubKey = DigitalSignatureUtils.RetrievePublicKey();
+
+            Assert.IsTrue(pubKey != null);
+        }
+
+        [TestMethod]
         public void RepositoriesFullInsert()
         {
-            DigitalSignatureUtils.AssignOrRetrieveKeyPair("addr3");
+            DigitalSignatureUtils.AssignKeyPair("addr3");
 
             TransactionPoolRepository tpr = new TransactionPoolRepository();
 
@@ -60,8 +70,8 @@ namespace Barcoin.Tests
             {
                 PoolId = poolId,
                 SenderId = 2,
-                RecipientId = 1,
-                Amount = 10,
+                RecipientId = 3,
+                Amount = 2,
                 Status = TransactionStatus.confirmed.ToString(),
                 Timestamp = DateTime.Now
             };
@@ -79,7 +89,7 @@ namespace Barcoin.Tests
                 Timestamp = DateTime.Now
             };
 
-            b.Pool = tpr.Get(poolId);
+            b.AssignPool();
 
             b.ComputeHash();
 
@@ -91,7 +101,7 @@ namespace Barcoin.Tests
                 )
             );
 
-            int blockId  = br.Add(b);
+            int blockId = br.Add(b);
 
             Assert.AreEqual(blockId, br.Get(blockId).Id);
         }

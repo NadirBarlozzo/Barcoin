@@ -10,6 +10,9 @@
              Style="{StaticResource global}"
              Dialog:DialogParticipation.Register="{Binding}"
              d:DesignHeight="720" d:DesignWidth="1280">
+    <UserControl.InputBindings>
+        <KeyBinding Command="{Binding Path=RegisterCommand}" CommandParameter="{Binding ElementName=pass}" Key="Return"/>
+    </UserControl.InputBindings>
     <Grid HorizontalAlignment="Center" Margin="0 30 0 180" MinHeight="500">
         <Grid.RowDefinitions>
             <RowDefinition Height=".7*"/>

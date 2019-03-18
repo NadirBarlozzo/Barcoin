@@ -1,17 +1,17 @@
-﻿<UserControl x:Class="Barcoin.Client.View.LoginView"
+﻿<UserControl x:Class="Barcoin.Client.View.SendView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
-             mc:Ignorable="d"
-             DataContext="{Binding Source={StaticResource Locator}, Path=Login}"
+             DataContext="{Binding Source={StaticResource Locator}, Path=Send}"
              Style="{StaticResource global}"
              Dialog:DialogParticipation.Register="{Binding}"
+             mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
     <UserControl.InputBindings>
-        <KeyBinding Command="{Binding Path=LoginCommand}" CommandParameter="{Binding ElementName=pass}" Key="Return"/>
+        <KeyBinding Command="{Binding Path=SendCommand}" Key="Return"/>
     </UserControl.InputBindings>
     <Grid HorizontalAlignment="Center" Margin="0 30 0 180" MinHeight="500">
         <Grid.RowDefinitions>
@@ -24,16 +24,17 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" FontSize="40" TextAlignment="Center" Text="Login" Width="300"/>
+        <TextBlock Grid.Row="0" FontSize="40" TextAlignment="Center" Text="Send BRC" Width="300"/>
         <Separator Grid.Row="1" Background="DeepSkyBlue"/>
-        <TextBox Text="{Binding Path=Username, Mode=TwoWay}" Margin="0,10,0,10" Grid.Row="2" Height="35" Width="280" FontWeight="Bold" Controls:TextBoxHelper.Watermark="Insert username" />
-        <PasswordBox Name="pass" Margin="0,10,0,10" PasswordChar="*" Grid.Row="3" Height="35" Width="280" FontWeight="Bold" Controls:TextBoxHelper.Watermark="Insert password" />
+        <TextBox Text="{Binding Path=Address, Mode=TwoWay}" Margin="0,10,0,10" Grid.Row="2" Height="35" Width="280" FontWeight="Bold" Controls:TextBoxHelper.Watermark="Insert BRC address"/>
+        <TextBox Text="{Binding Path=Amount, Mode=TwoWay}" Margin="0,10,0,10" Grid.Row="3" Height="35" Width="280" FontWeight="Bold" Controls:TextBoxHelper.Watermark="Insert BRC amount"/>
+        <CheckBox Grid.Row="4" Width="280" Content="Accept Terms and Conditions" IsChecked="{Binding Path=IsLegal}"></CheckBox>
         <Border Grid.Row="6" Height="50" Width="280" BorderBrush="Red" BorderThickness="2" Visibility="{Binding Path=ErrorVisibility}">
             <Grid Background="#20FF0000">
                 <TextBlock Text="{Binding Path=Error}" Margin="5" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" TextAlignment="Center"></TextBlock>
             </Grid>
         </Border>
-        <Button Grid.Row="7" Margin="10" Height="30" Width="130" HorizontalAlignment="Left" Content="Sign in" Command="{Binding Path=LoginCommand}" CommandParameter="{Binding ElementName=pass}"></Button>
-        <Button Grid.Row="7" Margin="10" Height="30" Width="130" HorizontalAlignment="Right" Content="Register" Command="{Binding Path=GotoRegisterCommand}"></Button>
+        <Button Grid.Row="7" Margin="10" Height="30" Width="130" HorizontalAlignment="Left" Content="Confirm" Command="{Binding Path=SendCommand}"></Button>
+        <Button Grid.Row="7" Margin="10" Height="30" Width="130" HorizontalAlignment="Right" Content="Back" Command="{Binding Path=GotoDashboardCommand}"></Button>
     </Grid>
 </UserControl>

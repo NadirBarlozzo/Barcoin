@@ -1,8 +1,11 @@
-﻿using Barcoin.Blockchain.Interface;
+﻿using Barcoin.Blockchain.Enum;
+using Barcoin.Blockchain.Helper;
+using Barcoin.Blockchain.Interface;
 using Barcoin.Blockchain.Service;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Drawing;
+using System.Linq;
 
 namespace Barcoin.Blockchain.Model
 {
@@ -52,19 +55,19 @@ namespace Barcoin.Blockchain.Model
 
         public ObservableCollection<Transaction> GetUserRelevantTransactions(int userId)
         {
-            ObservableCollection<Transaction> transactions = new ObservableCollection<Transaction>();
+            ObservableCollection<Transaction> transactions = GetTransactions();
 
-            foreach(Block block in Blocks)
+            ObservableCollection<Transaction> relevantTransactions = new ObservableCollection<Transaction>();
+
+            foreach (Transaction t in transactions)
             {
-                Transaction t = block.Pool.GetFirst();
-
                 if (t.RecipientId == userId || t.SenderId == userId)
                 {
-                    transactions.Add(t);
+                    relevantTransactions.Add(t);
                 }
             }
 
-            return transactions;
+            return relevantTransactions;
         }
 
         public ObservableCollection<Transaction> GetTransactions()
@@ -84,6 +87,58 @@ namespace Barcoin.Blockchain.Model
         public string GetUsernameById(int userId)
         {
             return UserRepository.Get(userId).Username;
+        }
+
+        public Block GenerateBlock(int senderId, int recipientId, float amount)
+        {
+            TransactionPoolRepository tpr = new TransactionPoolRepository();
+
+            TransactionPool tp = new TransactionPool
+            {
+                Timestamp = DateTime.Now
+            };
+
+            int poolId = tpr.Add(tp);
+
+            TransactionRepository tr = new TransactionRepository();
+
+            Transaction t = new Transaction
+            {
+                PoolId = poolId,
+                SenderId = senderId,
+                RecipientId = recipientId,
+                Amount = amount,
+                Status = TransactionStatus.confirmed.ToString(),
+                Timestamp = DateTime.Now
+            };
+
+            int transactionId = tr.Add(t);
+
+            Block b = new Block
+            {
+                PoolId = poolId,
+                PreviousHash = Blocks.Last().Hash,
+                Timestamp = DateTime.Now
+            };
+
+            b.AssignPool();
+
+            b.ComputeHash();
+
+            b.Signature = Convert.ToBase64String(
+                DigitalSignatureUtils.SignData(
+                    Convert.FromBase64String(
+                        b.Hash
+                    )
+                )
+            );
+
+            return b;
+        }
+
+        public int GetIdFromAddress(string address)
+        {
+            return Users.Find(x => x.Address.Equals(address)).Id;
         }
     }
 }

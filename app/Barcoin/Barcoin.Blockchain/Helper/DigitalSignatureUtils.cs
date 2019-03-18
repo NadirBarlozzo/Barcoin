@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using System;
+using System.Security.Cryptography;
 
 namespace Barcoin.Blockchain.Helper
 {
@@ -8,7 +9,7 @@ namespace Barcoin.Blockchain.Helper
 
         private const string BASE_CONTAINER = "BRC-";
 
-        public static void AssignOrRetrieveKeyPair(string containerAddress)
+        public static void AssignKeyPair(string containerAddress)
         {
             CspParameters cp = new CspParameters
             {
@@ -16,6 +17,34 @@ namespace Barcoin.Blockchain.Helper
             };
 
             provider = new RSACryptoServiceProvider(2048, cp);
+        }
+
+        public static void RetrieveKeyPair(string containerAddress)
+        {
+            if(DoesKeyExists(BASE_CONTAINER + containerAddress))
+            {
+                AssignKeyPair(containerAddress);
+            }
+        }
+
+        public static bool DoesKeyExists(string containerName)
+        {
+            var cp = new CspParameters
+            {
+                Flags = CspProviderFlags.UseExistingKey,
+                KeyContainerName = containerName
+            };
+
+            try
+            {
+                var provider = new RSACryptoServiceProvider(cp);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public static byte[] SignData(byte[] hash)

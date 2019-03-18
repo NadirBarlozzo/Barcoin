@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="GanttBarcoin" company="" webLink="http://" view-date="2018-12-31" view-index="0" gantt-divider-location="485" resource-divider-location="300" version="2.8.5" locale="en_GB">
+<?xml version="1.0" encoding="UTF-8"?><project name="GanttBarcoin" company="" webLink="http://" view-date="2019-03-04" view-index="0" gantt-divider-location="485" resource-divider-location="300" version="2.8.5" locale="en_GB">
     <description/>
     <view zooming-state="default:5" id="gantt-chart">
         <field id="tpd3" name="Name" width="307" order="0"/>
@@ -57,17 +57,17 @@
             <task id="18" name="disegnare interfacce" meeting="false" start="2019-01-23" duration="1" complete="0" expand="true"/>
             <task id="60" name="struttura blockchain" meeting="false" start="2019-01-23" duration="5" complete="0" expand="true"/>
         </task>
-        <task id="2" name="Implementazione" color="#ff9900" meeting="false" start="2019-01-28" duration="24" complete="0" expand="true">
+        <task id="2" name="Implementazione" color="#ff9900" meeting="false" start="2019-01-28" duration="22" complete="0" expand="true">
             <task id="24" name="modifica del database per multiutenza" color="#ff9900" meeting="false" start="2019-01-28" duration="1" complete="0" expand="true"/>
             <task id="65" name="integrazione query-building" meeting="false" start="2019-01-28" duration="1" complete="0" expand="true"/>
             <task id="25" name="pattern ORM" meeting="false" start="2019-01-29" duration="2" complete="0" expand="true"/>
             <task id="67" name="creazione nuove interfacce in WPF" meeting="false" start="2019-01-30" duration="2" complete="0" expand="true"/>
             <task id="69" name="gestione multiutente" meeting="false" start="2019-02-04" duration="3" complete="0" expand="true"/>
-            <task id="34" name="libreria di progetto blockchain" meeting="false" start="2019-02-11" duration="13" complete="0" expand="true"/>
-            <task id="71" name="integrare libreria con il client" meeting="false" start="2019-03-12" duration="5" complete="0" expand="true"/>
+            <task id="34" name="libreria di progetto blockchain" meeting="false" start="2019-02-11" duration="12" complete="0" expand="true"/>
+            <task id="71" name="integrare libreria con il client" meeting="false" start="2019-03-06" duration="5" complete="0" expand="true"/>
         </task>
-        <task id="3" name="Test" color="#33ffcc" meeting="false" start="2019-03-25" duration="6" complete="0" expand="true">
-            <task id="30" name="test login/logout utente" color="#33ffcc" meeting="false" start="2019-03-25" duration="1" complete="0" expand="true"/>
+        <task id="3" name="Test" color="#33ffcc" meeting="false" start="2019-03-20" duration="7" complete="0" expand="true">
+            <task id="30" name="test login/logout utente" color="#33ffcc" meeting="false" start="2019-03-20" duration="1" complete="0" expand="true"/>
             <task id="31" name="test autonomia blockchain" meeting="false" start="2019-03-25" duration="3" complete="0" expand="true"/>
             <task id="33" name="test integrazione client" meeting="false" start="2019-03-27" duration="4" complete="0" expand="true"/>
         </task>

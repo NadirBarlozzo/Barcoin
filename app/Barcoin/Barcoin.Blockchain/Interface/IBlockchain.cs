@@ -1,5 +1,4 @@
 ﻿using Barcoin.Blockchain.Model;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace Barcoin.Blockchain.Interface
@@ -10,6 +9,10 @@ namespace Barcoin.Blockchain.Interface
 
         ObservableCollection<Transaction> GetUserRelevantTransactions(int userId);
 
+        Block GenerateBlock(int senderId, int recipientId, float amount);
+
         bool IsValid();
+
+        int GetIdFromAddress(string address);
     }
 }

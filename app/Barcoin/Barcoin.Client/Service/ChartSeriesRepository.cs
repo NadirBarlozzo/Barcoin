@@ -1,53 +1,123 @@
 ﻿using Barcoin.Blockchain.Model;
+using Barcoin.Client.Model;
 using LiveCharts;
 using LiveCharts.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Windows.Controls;
 
 namespace Barcoin.Client.Service
 {
     public class ChartSeriesRepository
     {
-        public ObservableCollection<Transaction> BlockchainTransactions { get; set; }
-        public int BlockchainTransactionsCount { get; set; }
+        public IEnumerable<Transaction> BlockchainTransactions { get; set; }
+        public ObservableCollection<CustomTransaction> UserTransactions { get; set; }
 
-        public SeriesCollection TransactionsDailyData { get; set; }
-        public List<string> TransactionsDailyLabels { get; set; }
+        public SeriesCollection DailyCurrencyTraded { get; set; }
+        public SeriesCollection DailyTransactions { get; set; }
+        public SeriesCollection DailyBalances { get; set; }
 
-        public SeriesCollection CurrencyTradedDailyData { get; set; }
+        public List<string> Labels { get; set; }
 
-        public ChartSeriesRepository(ObservableCollection<Transaction> transactions)
+        public ChartSeriesRepository(IEnumerable<Transaction> transactionsB, ObservableCollection<CustomTransaction> transactionsU)
         {
-            BlockchainTransactions = transactions;
-            BlockchainTransactionsCount = BlockchainTransactions.Count;
+            BlockchainTransactions = transactionsB;
+            UserTransactions = transactionsU;
 
-            TransactionsDailyData = new SeriesCollection()
-            {
-                new LineSeries
-                {
-                    Title = "Daily Transactions",
-                    Values = CountDailyTransactions()
-                }
-            };
+            ComputeChartsDatapoints();
         }
 
-        private ChartValues<int> CountDailyTransactions()
+        private void ComputeChartsDatapoints()
         {
-            var groups = BlockchainTransactions.GroupBy(x => x.Timestamp.Date);
+            var globalGroups = BlockchainTransactions
+                .OrderBy(x => x.Timestamp.Date)
+                .GroupBy(x => x.Timestamp.Date);
 
-            ChartValues<int> values = new ChartValues<int>();
-            TransactionsDailyLabels = new List<string>();
+            ChartValues<int> dailyTransactions = new ChartValues<int>();
+            ChartValues<double> dailyCurrencyTraded = new ChartValues<double>();
+            ChartValues<double> dailyReceivedCurrency = new ChartValues<double>();
+            ChartValues<double> dailySentCurrency = new ChartValues<double>();
 
-            foreach (var group in groups)
+            Labels = new List<string>();
+
+            foreach (var group in globalGroups)
             {
-                values.Add(group.Count());
+                dailyTransactions.Add(group.Count());
 
-                TransactionsDailyLabels.Add(group.Key.ToString("yyyy.MM.dd"));
+                double sum = 0;
+
+                for (int i = 0; i < group.Count(); i++)
+                {
+                    Transaction t = group.ElementAt(i);
+
+                    sum += t.Amount;
+                }
+
+                dailyCurrencyTraded.Add(Math.Round(sum, 4));
+
+                Labels.Add(group.Key.ToString("yyyy.MM.dd"));
             }
 
-            return values;
+            var ownGroups = UserTransactions
+                .OrderBy(x => Convert.ToDateTime(x.Timestamp).Date)
+                .GroupBy(x => Convert.ToDateTime(x.Timestamp).Date);
+
+            foreach (var group in ownGroups)
+            {
+                double sumReceived = 0;
+                double sumSent = 0;
+
+                for (int i = 0; i < group.Count(); i++)
+                {
+                    CustomTransaction ct = group.ElementAt(i);
+
+                    if (ct.Recipient.Equals("You"))
+                    {
+                        sumReceived += ct.Amount;
+                    }
+                    else
+                    {
+                        sumSent += ct.Amount;
+                    }
+                }
+
+                dailyReceivedCurrency.Add(Math.Round(sumReceived, 4));
+                dailySentCurrency.Add(Math.Round(sumSent, 4));
+            }
+
+            DailyTransactions = new SeriesCollection()
+            {
+                new ColumnSeries()
+                {
+                    Title = "Daily Global Transactions",
+                    Values = dailyTransactions
+                }
+            };
+
+            DailyCurrencyTraded = new SeriesCollection()
+            {
+                new ColumnSeries()
+                {
+                    Title = "Daily Global BRC Traded",
+                    Values = dailyCurrencyTraded
+                }
+            };
+
+            DailyBalances = new SeriesCollection()
+            {
+                new StackedColumnSeries()
+                {
+                    Title = "Received Currency",
+                    Values = dailyReceivedCurrency
+                },
+
+                new StackedColumnSeries()
+                {
+                    Title = "Sent Currency",
+                    Values = dailySentCurrency
+                }
+            };
         }
     }
 }

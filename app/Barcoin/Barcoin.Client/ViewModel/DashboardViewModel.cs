@@ -3,18 +3,19 @@ using Barcoin.Blockchain.Model;
 using Barcoin.Client.Model;
 using Barcoin.Client.Service;
 using MVVM;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 
 namespace Barcoin.Client.ViewModel
 {
     public class DashboardViewModel : BindableBase
     {
         public IDelegateCommand SignoutCommand { get; private set; }
+        public IDelegateCommand GotoSendCommand { get; private set; }
 
         private User SignedUser { get; set; }
-
-        private ObservableCollection<Transaction> Transactions { get; set; }
 
         public ObservableCollection<CustomTransaction> CustomTransactions { get; set; }
 
@@ -27,8 +28,14 @@ namespace Barcoin.Client.ViewModel
         public DashboardViewModel()
         {
             SignoutCommand = new DelegateCommand(OnSignout);
+            GotoSendCommand = new DelegateCommand(OnGotoSend);
 
             Messenger.Default.Register<User>(this, OnSentUser);
+        }
+
+        private void OnGotoSend(object obj)
+        {
+            ViewModelLocator.Main.CurrentViewModel = ViewModelLocator.Send;
         }
 
         private void OnSentUser(User user)
@@ -38,24 +45,24 @@ namespace Barcoin.Client.ViewModel
             InitializeDashboard();
         }
 
-        private void InitializeDashboard()
+        public void InitializeDashboard()
         {
-            DigitalSignatureUtils.AssignOrRetrieveKeyPair(SignedUser.Address);
+            DigitalSignatureUtils.RetrieveKeyPair(SignedUser.Address);
 
             var barcoin = new Blockchain.Model.Blockchain();
 
-            Transactions = barcoin.GetUserRelevantTransactions(SignedUser.Id);
-            Transactions.OrderBy(x => x.Timestamp.TimeOfDay);
+            ObservableCollection<Transaction> transactions = barcoin.GetUserRelevantTransactions(SignedUser.Id);
+
+            var orderedTransactions = transactions.OrderByDescending(x => x.Timestamp.Date)
+                .ThenByDescending(x => x.Timestamp.TimeOfDay);
 
             CustomTransactions = new ObservableCollection<CustomTransaction>();
-
-            ChartSeriesRepo = new ChartSeriesRepository(barcoin.GetTransactions());
 
             Fullname = SignedUser.Firstname + " " + SignedUser.Lastname;
 
             float balance = 0.0f;
 
-            foreach (Transaction t in Transactions)
+            foreach (Transaction t in orderedTransactions)
             {
                 if (t.RecipientId == SignedUser.Id)
                 {
@@ -83,12 +90,30 @@ namespace Barcoin.Client.ViewModel
                 CustomTransactions.Add(ct);
             }
 
-            Balance = balance.ToString("n5");
+            ChartSeriesRepo = new ChartSeriesRepository(
+                barcoin.GetTransactions()
+                .OrderByDescending(x => x.Timestamp.Date)
+                .Take(50),
+                CustomTransactions
+            );
+
+            Balance = balance.ToString("n4");
+
+            if(barcoin.IsValid())
+            {
+                ViewModelLocator.Main.SyncState = "up to date";
+            }
+            else
+            {
+                ViewModelLocator.Main.SyncState = "out of sync";
+            }
         }
 
         private void OnSignout(object obj)
         {
             SignedUser = null;
+
+            Application.Current.Resources["SID"] = null;
 
             ViewModelLocator.Main.CurrentViewModel = ViewModelLocator.Login;
         }

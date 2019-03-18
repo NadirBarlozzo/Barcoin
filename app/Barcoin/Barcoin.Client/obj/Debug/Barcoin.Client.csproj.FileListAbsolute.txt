@@ -220,3 +220,5 @@ C:\Users\wHisxaa\Documents\GitMain\Barcoin\app\Barcoin\Barcoin.Client\bin\Debug\
 C:\Users\wHisxaa\Documents\GitMain\Barcoin\app\Barcoin\Barcoin.Client\bin\Debug\Barcoin.Blockchain.dll
 C:\Users\wHisxaa\Documents\GitMain\Barcoin\app\Barcoin\Barcoin.Client\bin\Debug\Barcoin.Blockchain.pdb
 C:\Users\wHisxaa\Documents\GitMain\Barcoin\app\Barcoin\Barcoin.Client\obj\Debug\Barcoin.Client.exe.config
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\app\Barcoin\Barcoin.Client\obj\Debug\View\SendView.g.cs
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\app\Barcoin\Barcoin.Client\obj\Debug\View\SendView.baml

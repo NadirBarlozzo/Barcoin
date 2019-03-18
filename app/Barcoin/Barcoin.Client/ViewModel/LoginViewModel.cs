@@ -101,6 +101,8 @@ namespace Barcoin.Client.ViewModel
 
                 ViewModelLocator.Main.CurrentViewModel = ViewModelLocator.Dashboard;
 
+                Application.Current.Resources["SID"] = user.Id;
+
                 Messenger.Default.Send(user);
             }
             else

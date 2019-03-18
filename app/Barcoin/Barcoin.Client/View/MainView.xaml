@@ -18,42 +18,11 @@
         <DataTemplate DataType="{x:Type viewmodel:DashboardViewModel}">
             <local:DashboardView></local:DashboardView>
         </DataTemplate>
-
-        <Style TargetType="{x:Type ContentControl}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type ContentControl}">
-                        <ContentPresenter Margin="{TemplateBinding Padding}"/>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <Image x:Key="LogoLink" Source="{Binding Logo}"/>
-        <Image x:Key="AddLink" Source="{Binding Add}"/>
-        <Image x:Key="AboutLink" Source="{Binding About}"/>
+        <DataTemplate DataType="{x:Type viewmodel:SendViewModel}">
+            <local:SendView></local:SendView>
+        </DataTemplate>
     </UserControl.Resources>
     <StackPanel Background="White">
-        <!--<Grid Grid.Column="0" Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.2*"></ColumnDefinition>
-                <ColumnDefinition Width="1*"></ColumnDefinition>
-                <ColumnDefinition Width="0.2*"></ColumnDefinition>
-                <ColumnDefinition Width="0.2*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Button Content="{StaticResource LogoLink}" ToolTip="Dashboard" Background="Transparent" BorderThickness="0" Grid.Column="0" Width="64" Height="64" Command="{Binding Path=DashboardCommand}"></Button>
-            <TextBlock Grid.Column="1" TextAlignment="Left" VerticalAlignment="Center" Foreground="Black" FontSize="40" FontFamily="Montserrat" Margin="0,43,0,28">Barcoin</TextBlock>
-            <Button Grid.Column="2" Content="{StaticResource AboutLink}"
-                    ToolTip="About Barcoin" Background="Transparent"
-                    BorderThickness="0" Width="64" Height="64"
-                    Command="{Binding Path=AboutCommand}">
-            </Button>
-            <Button Grid.Column="3" Content="{StaticResource AddLink}"
-                    ToolTip="Add a new credit line" Background="Transparent"
-                    BorderThickness="0" Width="64" Height="64"
-                    Command="{Binding Path=AddCommand}">
-            </Button>
-        </Grid>-->
         <ContentControl Grid.Row="1" Margin="20"
                 Content="{Binding Path=CurrentViewModel}"/>
     </StackPanel>

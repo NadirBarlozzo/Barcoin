@@ -10,6 +10,7 @@
       d:DesignHeight="720" d:DesignWidth="1280">
     <UserControl.Resources>
         <local:HashPrefixValueConverter x:Key="PreConverter"/>
+        
         <Style TargetType="ListBoxItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -19,6 +20,13 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style TargetType="lvc:Separator">
+            <Setter Property="Stroke" Value="Black"></Setter>
+        </Style>
+        <Style TargetType="lvc:Axis">
+            <Setter Property="Foreground" Value="Black"></Setter>
+        </Style>
+        
         <DataTemplate x:Key="TransactionTemplate">
             <Border Margin="0,0,0,5" Padding="15" BorderBrush="Black" BorderThickness="1" Background="{Binding Path=Color}">
                 <Grid>
@@ -58,11 +66,14 @@
         </DataTemplate>
         
         <Image x:Key="SignoutImage" Source="..\Resource\signout.png"/>
+        <Image x:Key="SendImage" Source="..\Resource\send.png"/>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height=".3*"/>
             <RowDefinition Height=".3*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -75,37 +86,47 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.1*"/>
                 <ColumnDefinition Width="0.3*"/>
-                <ColumnDefinition Width="1.1*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.1*"/>
             </Grid.ColumnDefinitions>
             <Button Content="{StaticResource SignoutImage}" Background="Transparent" BorderThickness="0" Command="{Binding Path=SignoutCommand}" Grid.Column="0" Width="64" Height="64"/>
             <TextBlock Margin="20,0,0,0" FontSize="25" VerticalAlignment="Center" Text="{Binding Path=Fullname}" Grid.Column="1"/>
-            <TextBlock Margin="20,0,0,0" FontSize="25" Foreground="DeepSkyBlue" VerticalAlignment="Center" FontWeight="DemiBold" Text="{Binding Path=Balance, StringFormat={}BRC {0}}" Grid.Column="2" />
+            <TextBlock Margin="20,0,0,0" FontSize="25" Foreground="DeepSkyBlue" VerticalAlignment="Center" FontWeight="DemiBold" Text="{Binding Path=Balance, StringFormat={}BRC {0}}" Grid.Column="2"/>
+            <Button Content="{StaticResource SendImage}" Background="Transparent" BorderThickness="0" Command="{Binding Path=GotoSendCommand}" Grid.Column="3" Width="56" Height="56"/>
         </Grid>
 
-        <TextBlock Grid.Row="1" Margin="30,30,0,10" FontSize="20" Text="Your transactions:"/>
+        <TextBlock Grid.Row="1" Margin="30,20,0,10" FontSize="20" Text="Your transactions:"/>
 
-        <ListBox Grid.Row="2" Margin="30,10,0,0" HorizontalAlignment="Left" Background="Transparent" BorderThickness="0" ItemTemplate="{StaticResource TransactionTemplate}"
-            ItemsSource="{Binding Path=CustomTransactions}"/>
+        <ListBox Grid.Row="2" Grid.RowSpan="3" Margin="30,10,0,0" HorizontalAlignment="Left" Background="Transparent" BorderThickness="0" ItemTemplate="{StaticResource TransactionTemplate}"
+        ItemsSource="{Binding Path=CustomTransactions}"/>
+        
+        <TextBlock Grid.Row="1" Grid.Column="1" Margin="0,20,0,10" FontSize="20" Text="Relevant graphs:"/>
 
-        <TextBlock Grid.Row="1" Grid.Column="1" Margin="0,30,0,10" FontSize="20" Text="Relevant graphs:"/>
-
-        <lvc:CartesianChart Grid.Row="2" Grid.Column="1" Series="{Binding ChartSeriesRepo.TransactionsDailyData}" LegendLocation="Right">
+        <lvc:CartesianChart Grid.Row="2" Grid.Column="1" Series="{Binding ChartSeriesRepo.DailyTransactions}" MinHeight="150" Margin="0,0,30,0" LegendLocation="Right">
             <lvc:CartesianChart.AxisY>
                 <lvc:Axis Title="Count"></lvc:Axis>
             </lvc:CartesianChart.AxisY>
             <lvc:CartesianChart.AxisX>
-                <lvc:Axis Title="Dates" Labels="{Binding ChartSeriesRepo.TransactionsDailyLabels}"></lvc:Axis>
+                <lvc:Axis Title="Date" Labels="{Binding ChartSeriesRepo.Labels}"></lvc:Axis>
             </lvc:CartesianChart.AxisX>
         </lvc:CartesianChart>
 
-        <!--<ListBox Background="Transparent" BorderThickness="0" ItemTemplate="{StaticResource CreditorTemplate}"
-                 ItemsSource="{Binding Path=Creditors}" Grid.RowSpan="2">
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel MaxWidth="950">
-                    </WrapPanel>
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-        </ListBox>-->
+        <lvc:CartesianChart Grid.Row="3" Grid.Column="1" Series="{Binding ChartSeriesRepo.DailyCurrencyTraded}" MinHeight="150" Margin="0,0,30,0" LegendLocation="Right">
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="Total"></lvc:Axis>
+            </lvc:CartesianChart.AxisY>
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title="Date" Labels="{Binding ChartSeriesRepo.Labels}"></lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+        </lvc:CartesianChart>
+
+        <lvc:CartesianChart Grid.Row="4" Grid.Column="1" Series="{Binding ChartSeriesRepo.DailyBalances}" MinHeight="150" Margin="0,0,30,0" LegendLocation="Right">
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="Amount"></lvc:Axis>
+            </lvc:CartesianChart.AxisY>
+            <lvc:CartesianChart.AxisX>
+                <lvc:Axis Title="Date" Labels="{Binding ChartSeriesRepo.Labels}"></lvc:Axis>
+            </lvc:CartesianChart.AxisX>
+        </lvc:CartesianChart>
     </Grid>
 </UserControl>

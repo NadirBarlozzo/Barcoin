@@ -4,7 +4,7 @@
 
 Copyright@ [Smashicons](https://www.flaticon.com/authors/smashicons)
 
-## Public/Private key + Transaction + Index
+## Public/Private key + Transaction + Index + Signout
 
 Copyright@ [Freepik](https://www.flaticon.com/authors/freepik)
 
@@ -19,3 +19,7 @@ Copyright@ [Lucy G](https://www.flaticon.com/authors/lucy-g)
 ## Bitcoin
 
 Copyright@ [dmitri13](https://www.flaticon.com/authors/dmitri13)
+
+## Send 
+
+Copyright@ [Pixel Perfect](https://www.flaticon.com/authors/pixel-perfect)

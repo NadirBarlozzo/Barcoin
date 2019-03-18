@@ -1,4 +1,6 @@
 ﻿using Barcoin.Client.Static;
+using Barcoin.Client.ViewModel;
+using MVVM;
 using System.Windows;
 
 namespace Barcoin.Client
