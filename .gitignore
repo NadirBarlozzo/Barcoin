@@ -1,5 +1,5 @@
 /archived-build
 /app/Barcoin/packages
-bin
-obj
-.vs
+**/bin
+**/obj
+**/.vs

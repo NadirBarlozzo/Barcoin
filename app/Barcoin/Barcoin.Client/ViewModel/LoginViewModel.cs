@@ -65,51 +65,57 @@ namespace Barcoin.Client.ViewModel
         {
             if (string.IsNullOrWhiteSpace(Username))
             {
-                Error = "Username field it's blank.";
+                Error = "Enter a username.";
                 ErrorVisibility = Visibility.Visible;
                 return;
             }
 
             User user = userRepo.Get(Username);
 
-            if(user == null)
+            if(user != null)
             {
-                Error = "Invalid credentials, double check your username and password.";
-                ErrorVisibility = Visibility.Visible;
-                return;
-            }
+                PasswordBox passwordBox = obj as PasswordBox;
+                string password = passwordBox.Password;
 
-            PasswordBox passwordBox = obj as PasswordBox;
-            string password = passwordBox.Password;
-
-            var passwordHash = HashUtils.ComputeHashSha256(
-                Encoding.UTF8.GetBytes(
-                    password +
-                    user.Salt
-                )
-            );
-
-            password = string.Empty;
-
-            if(Convert.ToBase64String(passwordHash).Equals(user.Password))
-            {
-                dialogCoordinator.ShowMessageAsync(
-                    this,
-                    "Login Successful",
-                    "You are now signed into your profile."
+                var passwordHash = HashUtils.ComputeHashSha256(
+                    Encoding.UTF8.GetBytes(
+                        password +
+                        user.Salt
+                    )
                 );
 
-                ViewModelLocator.Main.CurrentViewModel = ViewModelLocator.Dashboard;
+                password = string.Empty;
 
-                Application.Current.Resources["SID"] = user.Id;
+                if (Convert.ToBase64String(passwordHash).Equals(user.Password))
+                {
+                    dialogCoordinator.ShowMessageAsync(
+                        this,
+                        "Login Successful",
+                        "You are now signed into your profile."
+                    );
 
-                Messenger.Default.Send(user);
+                    ViewModelLocator.Main.CurrentViewModel = ViewModelLocator.Dashboard;
+
+                    Application.Current.Resources["SID"] = user.Id;
+
+                    Messenger.Default.Send(user);
+                }
+                else
+                {
+                    dialogCoordinator.ShowMessageAsync(
+                        this,
+                        "Login Failed",
+                        "The credentials you provided are invalid. Please double check and retry."
+                    );
+                }
             }
             else
             {
-                Error = "Invalid credentials, double check your username and password.";
-                ErrorVisibility = Visibility.Visible;
-                return;
+                dialogCoordinator.ShowMessageAsync(
+                    this,
+                    "Login Failed",
+                    "The credentials you provided are invalid. Please double check and retry."
+                );
             }
         }
 

@@ -78,21 +78,21 @@ namespace Barcoin.Client.ViewModel
         {
             if (string.IsNullOrWhiteSpace(Firstname))
             {
-                Error = "Firstname field it's blank.";
+                Error = "Enter a firstname.";
                 ErrorVisibility = Visibility.Visible;
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(Lastname))
             {
-                Error = "Lastname field it's blank.";
+                Error = "Enter a lastname.";
                 ErrorVisibility = Visibility.Visible;
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(Username))
             {
-                Error = "Username field it's blank.";
+                Error = "Enter a username.";
                 ErrorVisibility = Visibility.Visible;
                 return;
             }
@@ -112,7 +112,7 @@ namespace Barcoin.Client.ViewModel
 
             Guid gAddress = Guid.NewGuid();
 
-            User usr = new User
+            User user = new User
             {
                 Firstname = Firstname,
                 Lastname = Lastname,
@@ -123,13 +123,21 @@ namespace Barcoin.Client.ViewModel
                 Timestamp = DateTime.Now
             };
 
-            userRepo.Add(usr);
+            userRepo.Add(user);
+
+            DigitalSignatureUtils.AssignKeyPair(user.Address);
 
             dialogCoordinator.ShowMessageAsync(
                 this,
                 "Register Successful",
                 "Your private key has been generated and you should keep it for yourself at ALL times."
             );
+
+            Firstname = string.Empty;
+            Lastname = string.Empty;
+            Username = string.Empty;
+
+            ViewModelLocator.Main.CurrentViewModel = ViewModelLocator.Login;
         }
 
         private bool CanRegister(object obj)

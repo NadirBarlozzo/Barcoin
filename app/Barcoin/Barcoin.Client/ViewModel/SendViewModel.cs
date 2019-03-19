@@ -1,6 +1,5 @@
 ﻿using MahApps.Metro.Controls.Dialogs;
 using MVVM;
-using System;
 using System.Windows;
 
 namespace Barcoin.Client.ViewModel
@@ -69,12 +68,7 @@ namespace Barcoin.Client.ViewModel
             dialogCoordinator = DialogCoordinator.Instance;
 
             GotoDashboardCommand = new DelegateCommand(OnGotoDashboard);
-            SendCommand = new DelegateCommand(OnSend, CanSend);
-        }
-
-        private bool CanSend(object arg)
-        {
-            return true;
+            SendCommand = new DelegateCommand(OnSend);
         }
 
         private void OnSend(object obj)
@@ -95,7 +89,7 @@ namespace Barcoin.Client.ViewModel
 
             if (!IsLegal)
             {
-                Error = "Accept our terms and services.";
+                Error = "Accept our terms and conditions.";
                 ErrorVisibility = Visibility.Visible;
                 return;
             }
@@ -104,29 +98,40 @@ namespace Barcoin.Client.ViewModel
 
             int recipientId = barcoin.GetIdFromAddress(Address);
 
-            barcoin.AcceptBlock(
-                barcoin.GenerateBlock(
-                    (int)Application.Current.Resources["SID"],
-                    recipientId,
-                    float.Parse(Amount)
-                )
-            );
+            if(recipientId != -1)
+            {
+                barcoin.AcceptBlock(
+                    barcoin.GenerateBlock(
+                        (int)Application.Current.Resources["SID"],
+                        recipientId,
+                        float.Parse(Amount)
+                    )
+                );
 
-            dialogCoordinator.ShowMessageAsync(
-                this,
-                "Transaction Successful",
-                "Find furthermore information about your transactions in the dashboard tab."
-            );
+                dialogCoordinator.ShowMessageAsync(
+                    this,
+                    "Transaction Successful",
+                    "Find furthermore information about your transactions in the dashboard tab."
+                );
 
-            Address = string.Empty;
-            Amount = string.Empty;
+                Address = string.Empty;
+                Amount = string.Empty;
+            }
+            else
+            {
+                dialogCoordinator.ShowMessageAsync(
+                    this,
+                    "Transaction Failed",
+                    "The address you provided wasn't found inside the network. Please double check and retry."
+                );
+            }
         }
 
         private void OnGotoDashboard(object obj)
         {
             ViewModelLocator.Main.CurrentViewModel = ViewModelLocator.Dashboard;
 
-            ViewModelLocator.Dashboard.InitializeDashboard();
+            ViewModelLocator.Dashboard.UpdateDashboard();
         }
     }
 }

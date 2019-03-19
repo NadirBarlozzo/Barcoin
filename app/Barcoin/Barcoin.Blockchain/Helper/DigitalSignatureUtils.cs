@@ -19,12 +19,16 @@ namespace Barcoin.Blockchain.Helper
             provider = new RSACryptoServiceProvider(2048, cp);
         }
 
-        public static void RetrieveKeyPair(string containerAddress)
+        public static bool RetrieveKeyPair(string containerAddress)
         {
             if(DoesKeyExists(BASE_CONTAINER + containerAddress))
             {
                 AssignKeyPair(containerAddress);
+
+                return true;
             }
+
+            return false;
         }
 
         public static bool DoesKeyExists(string containerName)

@@ -138,7 +138,14 @@ namespace Barcoin.Blockchain.Model
 
         public int GetIdFromAddress(string address)
         {
-            return Users.Find(x => x.Address.Equals(address)).Id;
+            User target = Users.Find(x => x.Address.Equals(address));
+
+            if(target != null)
+            {
+                return target.Id;
+            }
+
+            return -1;
         }
     }
 }

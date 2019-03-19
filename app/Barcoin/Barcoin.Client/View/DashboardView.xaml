@@ -5,8 +5,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Barcoin.Client.Helper"
       xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
       DataContext="{Binding Source={StaticResource Locator}, Path=Dashboard}"
-      mc:Ignorable="d" 
+      Dialog:DialogParticipation.Register="{Binding}"
+      mc:Ignorable="d"
       d:DesignHeight="720" d:DesignWidth="1280">
     <UserControl.Resources>
         <local:HashPrefixValueConverter x:Key="PreConverter"/>

@@ -16,7 +16,6 @@ namespace Barcoin.Blockchain.Service
         {
             DbHelper helper = new DbHelper();
             db = helper.GetFactory();
-            Debug.WriteLine(db.Connection.State);
         }
 
         public int Add(Block item)

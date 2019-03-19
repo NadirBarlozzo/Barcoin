@@ -2,8 +2,8 @@
 using Barcoin.Blockchain.Model;
 using Barcoin.Client.Model;
 using Barcoin.Client.Service;
+using MahApps.Metro.Controls.Dialogs;
 using MVVM;
-using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -12,6 +12,8 @@ namespace Barcoin.Client.ViewModel
 {
     public class DashboardViewModel : BindableBase
     {
+        private readonly IDialogCoordinator dialogCoordinator;
+
         public IDelegateCommand SignoutCommand { get; private set; }
         public IDelegateCommand GotoSendCommand { get; private set; }
 
@@ -27,10 +29,22 @@ namespace Barcoin.Client.ViewModel
 
         public DashboardViewModel()
         {
+            dialogCoordinator = DialogCoordinator.Instance;
+
             SignoutCommand = new DelegateCommand(OnSignout);
-            GotoSendCommand = new DelegateCommand(OnGotoSend);
+            GotoSendCommand = new DelegateCommand(OnGotoSend, CanGotoSend);
 
             Messenger.Default.Register<User>(this, OnSentUser);
+        }
+
+        private bool CanGotoSend(object arg)
+        {
+            if(float.Parse(Balance) > 0f)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private void OnGotoSend(object obj)
@@ -42,23 +56,34 @@ namespace Barcoin.Client.ViewModel
         {
             SignedUser = user;
 
-            InitializeDashboard();
+            CustomTransactions = new ObservableCollection<CustomTransaction>();
+
+            Fullname = SignedUser.Firstname + " " + SignedUser.Lastname;
+
+            bool validOwner = DigitalSignatureUtils.RetrieveKeyPair(SignedUser.Address);
+
+            if (validOwner)
+            {
+                UpdateDashboard();
+            }
+            else
+            {
+                dialogCoordinator.ShowMessageAsync(
+                    this,
+                    "Security Breach - 3",
+                    "A valid key pair associated to this account wasn't found on your machine."
+                );
+            }
         }
 
-        public void InitializeDashboard()
+        public void UpdateDashboard()
         {
-            DigitalSignatureUtils.RetrieveKeyPair(SignedUser.Address);
-
             var barcoin = new Blockchain.Model.Blockchain();
 
             ObservableCollection<Transaction> transactions = barcoin.GetUserRelevantTransactions(SignedUser.Id);
 
             var orderedTransactions = transactions.OrderByDescending(x => x.Timestamp.Date)
                 .ThenByDescending(x => x.Timestamp.TimeOfDay);
-
-            CustomTransactions = new ObservableCollection<CustomTransaction>();
-
-            Fullname = SignedUser.Firstname + " " + SignedUser.Lastname;
 
             float balance = 0.0f;
 
