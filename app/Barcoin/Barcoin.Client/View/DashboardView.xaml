@@ -1,17 +1,15 @@
 ﻿<UserControl x:Class="Barcoin.Client.View.DashboardView"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="clr-namespace:Barcoin.Client.Helper"
-      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-      xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
-      DataContext="{Binding Source={StaticResource Locator}, Path=Dashboard}"
-      Dialog:DialogParticipation.Register="{Binding}"
-      mc:Ignorable="d"
-      d:DesignHeight="720" d:DesignWidth="1280">
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:Barcoin.Client.Helper"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        DataContext="{Binding Source={StaticResource Locator}, Path=Dashboard}"
+        mc:Ignorable="d"
+        d:DesignHeight="720" d:DesignWidth="1280">
     <UserControl.Resources>
-        <local:HashPrefixValueConverter x:Key="PreConverter"/>
+        <local:HashPrefixValueConverter x:Key="Shortener"/>
         
         <Style TargetType="ListBoxItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
             <Setter Property="Template">
@@ -56,7 +54,7 @@
                     
                     <TextBlock FontSize="15" Grid.Row="0" Grid.Column="2" FontWeight="Bold" Text="Hash"/>
                     <TextBlock FontSize="15" Margin="20,0,0,0" Grid.Row="0" Grid.Column="3"
-                        Text="{Binding Path=Hash, Converter={StaticResource PreConverter}, ConverterParameter=8, StringFormat={}{0}...}"/>
+                        Text="{Binding Path=Hash, Converter={StaticResource Shortener}, ConverterParameter=8, StringFormat={}{0}...}"/>
                     
                     <TextBlock FontSize="15" Grid.Row="1" Grid.Column="2" FontWeight="Bold" Text="Amount"/>
                     <TextBlock FontSize="15" Margin="20,0,10,0" Grid.Row="1" Grid.Column="3"  Text="{Binding Path=Amount, StringFormat={}BRC {0}}"/>
@@ -100,7 +98,7 @@
         <TextBlock Grid.Row="1" Margin="30,20,0,10" FontSize="20" Text="Your transactions:"/>
 
         <ListBox Grid.Row="2" Grid.RowSpan="3" Margin="30,10,0,0" HorizontalAlignment="Left" Background="Transparent" BorderThickness="0" ItemTemplate="{StaticResource TransactionTemplate}"
-        ItemsSource="{Binding Path=CustomTransactions}"/>
+            ItemsSource="{Binding Path=CustomTransactions}"/>
         
         <TextBlock Grid.Row="1" Grid.Column="1" Margin="0,20,0,10" FontSize="20" Text="Relevant graphs:"/>
 

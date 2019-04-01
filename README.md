@@ -4,15 +4,16 @@
 
 ## Purpose
 
-Barcoin aims to be an open-source solution to provide a micro-credits fully featured platform,
-transactions get stored through Barcoin's blockchain technologies in order to maintain the users'
-credentials and transactions' information confidential.
+Barcoin is a school project and it's purpose is to develop a fully featured
+micro-management platform.
+In order to ensure transactions' accountability without exposing the users involved in them,
+the program will also feature an evolving blockchain stack implemented from scratch.
 
 ## Roadmap
 
-- Blockchain's transactions confirmation by network nodes
-- Blockchain sync on every login
+- Blockchain's transactions confirmation by the network nodes following the PoW consensus algorithm
+- Blockchain sync on every login ✓ 
 - User's password reset and account deletion
-- UI Dashboard and payment method
-- Mining system and appropriate mining fee
-- More to come ...
+- UI Dashboard and payment method ✓ 
+- Mining system and appropriate mining fee, possibly low energy consuming
+- Asymmetric key pair check to validate ownership of an account ✓ 

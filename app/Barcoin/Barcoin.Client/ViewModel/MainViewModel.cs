@@ -1,5 +1,4 @@
 ﻿using MVVM;
-using System;
 using System.Windows;
 
 namespace Barcoin.Client.ViewModel
@@ -59,6 +58,8 @@ namespace Barcoin.Client.ViewModel
         {
             if (Application.Current.Resources["SID"] != null)
             {
+                ViewModelLocator.Dashboard.UpdateDashboard();
+
                 CurrentViewModel = ViewModelLocator.Dashboard;
             }
             else

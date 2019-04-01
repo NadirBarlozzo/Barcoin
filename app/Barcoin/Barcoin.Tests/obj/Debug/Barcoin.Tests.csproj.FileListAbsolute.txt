@@ -240,3 +240,4 @@ C:\Users\wHisxaa\Desktop\Dev\CSharp\Barcoin\app\Barcoin\Barcoin.Tests\obj\Debug\
 C:\Users\wHisxaa\Desktop\Dev\CSharp\Barcoin\app\Barcoin\Barcoin.Tests\obj\Debug\Barcoin.Tests.csproj.CopyComplete
 C:\Users\wHisxaa\Desktop\Dev\CSharp\Barcoin\app\Barcoin\Barcoin.Tests\obj\Debug\Barcoin.Tests.dll
 C:\Users\wHisxaa\Desktop\Dev\CSharp\Barcoin\app\Barcoin\Barcoin.Tests\obj\Debug\Barcoin.Tests.pdb
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\app\Barcoin\Barcoin.Tests\bin\Debug\Google.Protobuf.pdb

@@ -1722,7 +1722,7 @@
         </member>
         <member name="M:Dapper.SqlMapper.Query``8(System.Data.IDbConnection,System.String,System.Func{``0,``1,``2,``3,``4,``5,``6,``7},System.Object,System.Data.IDbTransaction,System.Boolean,System.String,System.Nullable{System.Int32},System.Nullable{System.Data.CommandType})">
             <summary>
-            Perform a multi-mapping query with 7 input types. 
+            Perform a multi-mapping query with 7 input types. If you need more types -> use Query with Type[] parameter.
             This returns a single type, combined from the raw types via <paramref name="map"/>.
             </summary>
             <typeparam name="TFirst">The first type in the recordset.</typeparam>

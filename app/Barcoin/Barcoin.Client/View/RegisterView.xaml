@@ -24,7 +24,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" FontSize="40" TextAlignment="Center" Text="Register" Width="300"/>
+        <TextBlock Grid.Row="0" FontSize="40" TextAlignment="Center" Text="Register" Width="300" />
         <Separator Grid.Row="1" Background="DeepSkyBlue" />
         <TextBox Text="{Binding Path=Firstname, Mode=TwoWay}" Grid.Row="2" Height="35" Width="280" FontWeight="Bold" Controls:TextBoxHelper.Watermark="Insert firstname" />
         <TextBox Text="{Binding Path=Lastname, Mode=TwoWay}" Grid.Row="3" Height="35" Width="280" FontWeight="Bold" Controls:TextBoxHelper.Watermark="Insert lastname" />

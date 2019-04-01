@@ -69,9 +69,9 @@ namespace Barcoin.Tests
             Transaction t = new Transaction
             {
                 PoolId = poolId,
-                SenderId = 2,
-                RecipientId = 3,
-                Amount = 2,
+                SenderId = 6,
+                RecipientId = 1,
+                Amount = 10,
                 Status = TransactionStatus.confirmed.ToString(),
                 Timestamp = DateTime.Now
             };

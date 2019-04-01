@@ -1,8 +1,6 @@
-﻿using Barcoin.Blockchain.Helper;
-using Barcoin.Blockchain.Model;
+﻿using Barcoin.Blockchain.Model;
 using Barcoin.Client.Model;
 using Barcoin.Client.Service;
-using MahApps.Metro.Controls.Dialogs;
 using MVVM;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -12,8 +10,6 @@ namespace Barcoin.Client.ViewModel
 {
     public class DashboardViewModel : BindableBase
     {
-        private readonly IDialogCoordinator dialogCoordinator;
-
         public IDelegateCommand SignoutCommand { get; private set; }
         public IDelegateCommand GotoSendCommand { get; private set; }
 
@@ -29,8 +25,6 @@ namespace Barcoin.Client.ViewModel
 
         public DashboardViewModel()
         {
-            dialogCoordinator = DialogCoordinator.Instance;
-
             SignoutCommand = new DelegateCommand(OnSignout);
             GotoSendCommand = new DelegateCommand(OnGotoSend, CanGotoSend);
 
@@ -56,24 +50,9 @@ namespace Barcoin.Client.ViewModel
         {
             SignedUser = user;
 
-            CustomTransactions = new ObservableCollection<CustomTransaction>();
-
             Fullname = SignedUser.Firstname + " " + SignedUser.Lastname;
 
-            bool validOwner = DigitalSignatureUtils.RetrieveKeyPair(SignedUser.Address);
-
-            if (validOwner)
-            {
-                UpdateDashboard();
-            }
-            else
-            {
-                dialogCoordinator.ShowMessageAsync(
-                    this,
-                    "Security Breach - 3",
-                    "A valid key pair associated to this account wasn't found on your machine."
-                );
-            }
+            UpdateDashboard();
         }
 
         public void UpdateDashboard()
@@ -81,6 +60,8 @@ namespace Barcoin.Client.ViewModel
             var barcoin = new Blockchain.Model.Blockchain();
 
             ObservableCollection<Transaction> transactions = barcoin.GetUserRelevantTransactions(SignedUser.Id);
+
+            CustomTransactions = new ObservableCollection<CustomTransaction>();
 
             var orderedTransactions = transactions.OrderByDescending(x => x.Timestamp.Date)
                 .ThenByDescending(x => x.Timestamp.TimeOfDay);

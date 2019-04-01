@@ -6,8 +6,8 @@
 
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.0.15" />
-    <PackageReference Include="SqlKata" Version="1.1.6" />
-    <PackageReference Include="SqlKata.Execution" Version="1.1.6" />
+    <PackageReference Include="SqlKata" Version="1.1.7" />
+    <PackageReference Include="SqlKata.Execution" Version="1.1.7" />
   </ItemGroup>
 
 </Project>

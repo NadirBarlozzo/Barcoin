@@ -88,17 +88,30 @@ namespace Barcoin.Client.ViewModel
 
                 if (Convert.ToBase64String(passwordHash).Equals(user.Password))
                 {
-                    dialogCoordinator.ShowMessageAsync(
-                        this,
-                        "Login Successful",
-                        "You are now signed into your profile."
-                    );
+                    bool validOwner = DigitalSignatureUtils.RetrieveKeyPair(user.Address);
 
-                    ViewModelLocator.Main.CurrentViewModel = ViewModelLocator.Dashboard;
+                    if (validOwner)
+                    {
+                        Application.Current.Resources["SID"] = user.Id;
 
-                    Application.Current.Resources["SID"] = user.Id;
+                        ViewModelLocator.Main.CurrentViewModel = ViewModelLocator.Dashboard;
 
-                    Messenger.Default.Send(user);
+                        Messenger.Default.Send(user);
+
+                        dialogCoordinator.ShowMessageAsync(
+                            this,
+                            "Login Successful",
+                            "You are now signed into your profile."
+                        );
+                    }
+                    else
+                    {
+                        dialogCoordinator.ShowMessageAsync(
+                            this,
+                            "Security Breach - 3",
+                            "A valid key pair associated to this account wasn't found on your machine."
+                        );
+                    }
                 }
                 else
                 {

@@ -12,6 +12,7 @@
              d:DesignHeight="720" d:DesignWidth="1280">
     <UserControl.InputBindings>
         <KeyBinding Command="{Binding Path=SendCommand}" Key="Return"/>
+        <KeyBinding Command="{Binding Path=GotoDashboardCommand}" Key="Esc"/>
     </UserControl.InputBindings>
     <Grid HorizontalAlignment="Center" Margin="0 30 0 180" MinHeight="500">
         <Grid.RowDefinitions>

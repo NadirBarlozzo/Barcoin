@@ -103,7 +103,7 @@ namespace Barcoin.Client.ViewModel
             var salt = HashUtils.GetSalt();
             var passwordHash = HashUtils.ComputeHashSha256(
                 Encoding.UTF8.GetBytes(
-                    password+
+                    password +
                     Convert.ToBase64String(salt)
                 )
             );

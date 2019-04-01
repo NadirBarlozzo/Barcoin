@@ -100,22 +100,37 @@ namespace Barcoin.Client.ViewModel
 
             if(recipientId != -1)
             {
-                barcoin.AcceptBlock(
-                    barcoin.GenerateBlock(
-                        (int)Application.Current.Resources["SID"],
-                        recipientId,
-                        float.Parse(Amount)
-                    )
-                );
+                string senderBalance = ViewModelLocator.Dashboard.Balance;
 
-                dialogCoordinator.ShowMessageAsync(
-                    this,
-                    "Transaction Successful",
-                    "Find furthermore information about your transactions in the dashboard tab."
-                );
+                if (float.Parse(Amount) < float.Parse(senderBalance))
+                {
+                    barcoin.AcceptBlock(
+                        barcoin.GenerateBlock(
+                            (int)Application.Current.Resources["SID"],
+                            recipientId,
+                            float.Parse(Amount)
+                        )
+                    );
 
-                Address = string.Empty;
-                Amount = string.Empty;
+                    dialogCoordinator.ShowMessageAsync(
+                        this,
+                        "Transaction Successful",
+                        "Find furthermore information about your transactions in the dashboard tab."
+                    );
+
+                    Address = string.Empty;
+                    Amount = string.Empty;
+                }
+                else
+                {
+                    dialogCoordinator.ShowMessageAsync(
+                        this,
+                        "Transaction Failed",
+                        "The amount you provided exceeds your current balance. It will be now defaulted to max value."
+                    );
+
+                    Amount = senderBalance;
+                }
             }
             else
             {
@@ -129,9 +144,9 @@ namespace Barcoin.Client.ViewModel
 
         private void OnGotoDashboard(object obj)
         {
-            ViewModelLocator.Main.CurrentViewModel = ViewModelLocator.Dashboard;
-
             ViewModelLocator.Dashboard.UpdateDashboard();
+
+            ViewModelLocator.Main.CurrentViewModel = ViewModelLocator.Dashboard;
         }
     }
 }

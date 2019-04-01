@@ -332,3 +332,4 @@ C:\Users\wHisxaa\Desktop\Dev\CSharp\Barcoin\app\Barcoin\Barcoin.Client\obj\Debug
 C:\Users\wHisxaa\Desktop\Dev\CSharp\Barcoin\app\Barcoin\Barcoin.Client\obj\Debug\View\LoginView.g.cs
 C:\Users\wHisxaa\Desktop\Dev\CSharp\Barcoin\app\Barcoin\Barcoin.Client\obj\Debug\View\RegisterView.g.cs
 C:\Users\wHisxaa\Desktop\Dev\CSharp\Barcoin\app\Barcoin\Barcoin.Client\obj\Debug\View\SendView.g.cs
+C:\Users\wHisxaa\Documents\GitMain\Barcoin\app\Barcoin\Barcoin.Client\bin\Debug\Google.Protobuf.pdb

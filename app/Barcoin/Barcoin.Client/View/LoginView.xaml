@@ -26,7 +26,7 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" FontSize="40" TextAlignment="Center" Text="Login" Width="300"/>
         <Separator Grid.Row="1" Background="DeepSkyBlue"/>
-        <TextBox Name="first" Text="{Binding Path=Username, Mode=TwoWay}" Margin="0,10,0,10" Grid.Row="2" Height="35" Width="280" FontWeight="Bold" Controls:TextBoxHelper.Watermark="Insert username" />
+        <TextBox Text="{Binding Path=Username, Mode=TwoWay}" Margin="0,10,0,10" Grid.Row="2" Height="35" Width="280" FontWeight="Bold" Controls:TextBoxHelper.Watermark="Insert username" />
         <PasswordBox Name="pass" Margin="0,10,0,10" PasswordChar="*" Grid.Row="3" Height="35" Width="280" FontWeight="Bold" Controls:TextBoxHelper.Watermark="Insert password" />
         <Border Grid.Row="6" Height="50" Width="280" BorderBrush="Red" BorderThickness="2" Visibility="{Binding Path=ErrorVisibility}">
             <Grid Background="#20FF0000">
