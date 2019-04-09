@@ -59,11 +59,11 @@ namespace Barcoin.Client.Service
                 Labels.Add(group.Key.ToString("yyyy.MM.dd"));
             }
 
-            var ownGroups = UserTransactions
+            var dateGroups = UserTransactions
                 .OrderBy(x => Convert.ToDateTime(x.Timestamp).Date)
                 .GroupBy(x => Convert.ToDateTime(x.Timestamp).Date);
 
-            foreach (var group in ownGroups)
+            foreach (var group in dateGroups)
             {
                 double sumReceived = 0;
                 double sumSent = 0;

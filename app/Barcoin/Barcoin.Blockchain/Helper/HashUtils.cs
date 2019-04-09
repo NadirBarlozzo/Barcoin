@@ -14,6 +14,7 @@ namespace Barcoin.Blockchain.Helper
         public static byte[] GetSalt(int maximumSaltLength)
         {
             var salt = new byte[maximumSaltLength];
+
             using (var random = new RNGCryptoServiceProvider())
             {
                 random.GetNonZeroBytes(salt);

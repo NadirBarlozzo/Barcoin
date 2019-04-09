@@ -84,11 +84,6 @@ namespace Barcoin.Blockchain.Model
             return transactions;
         }
 
-        public string GetUsernameById(int userId)
-        {
-            return UserRepository.Get(userId).Username;
-        }
-
         public Block GenerateBlock(int senderId, int recipientId, float amount)
         {
             TransactionPoolRepository tpr = new TransactionPoolRepository();
@@ -146,6 +141,11 @@ namespace Barcoin.Blockchain.Model
             }
 
             return -1;
+        }
+
+        public string GetUsernameById(int userId)
+        {
+            return UserRepository.Get(userId).Username;
         }
     }
 }
