@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Barcoin.Client.App" Collapsed="true">
+    <Position X="21" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barcoin.Client.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Barcoin.Client.SplashScreenWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SplashScreenWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Barcoin.Client.Helper.HashPrefixValueConverter" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="9.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\HashPrefixValueConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MVVM.BindableBase" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\MVVM\BindableBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MVVM.DelegateCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAACAAQAAEAEAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\MVVM\DelegateCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MVVM.DesignerLibrary" Collapsed="true">
+    <Position X="22.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAgAAAAgAAAAAAAAAAAABAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\MVVM\DesignerLibrary.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVVM.Messenger" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAgAAAIgxEDCAEAEIAAAAAABYAAAAAAAAEAAEAA=</HashCode>
+      <FileName>Helper\MVVM\Messenger.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MVVM.PreferredConstructorAttribute">
+    <Position X="24.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\MVVM\PreferredConstructorAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVVM.SimpleIoc" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQCAABgJEAERAAAAAEAIAAABAABAAAAIgMACCAAEFA=</HashCode>
+      <FileName>Helper\MVVM\SimpleIoc.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MVVM.ViewBindableBase">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAgAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\MVVM\ViewBindableBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVVM.WeakAction" Collapsed="true">
+    <Position X="2.75" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAACAAAAAAAQIAAAgACAIAIAAEAEAAAACAAAgAAA=</HashCode>
+      <FileName>Helper\MVVM\WeakAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVVM.WeakAction&lt;T&gt;" Collapsed="true">
+    <Position X="2.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAQAAAAAAAEAAAAAEAEAAAACAAAAAAA=</HashCode>
+      <FileName>Helper\MVVM\WeakActionGeneric.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MVVM.Messaging.GenericMessage&lt;T&gt;" Collapsed="true">
+    <Position X="3" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\MVVM\GenericMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVVM.Messaging.MessageBase" Collapsed="true">
+    <Position X="5.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Helper\MVVM\MessageBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVVM.Messaging.NotificationMessage" Collapsed="true">
+    <Position X="6.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\MVVM\NotificationMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVVM.Messaging.NotificationMessageAction" Collapsed="true">
+    <Position X="5.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\MVVM\NotificationMessageAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVVM.Messaging.NotificationMessageAction&lt;TCallbackParameter&gt;" Collapsed="true">
+    <Position X="7.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\MVVM\NotificationMessageActionGeneric.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVVM.Messaging.NotificationMessage&lt;T&gt;" Collapsed="true">
+    <Position X="3" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\MVVM\NotificationMessageGeneric.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MVVM.Messaging.NotificationMessageWithCallback" Collapsed="true">
+    <Position X="6.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQQAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\MVVM\NotificationMessageWithCallback.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barcoin.Client.Model.CustomTransaction">
+    <Position X="15.75" Y="6.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAgAAAAAACAAAAAAAAAAAAAAAAgAAIAAA=</HashCode>
+      <FileName>Model\CustomTransaction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barcoin.Client.Properties.Resources" Collapsed="true">
+    <Position X="19.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barcoin.Client.Properties.Settings" Collapsed="true">
+    <Position X="22.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barcoin.Client.Service.ApplicationVersionService" Collapsed="true">
+    <Position X="22.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQDAAiAAAAAAAAAAAAgAAEUAAAAAAAAAAQABIIEA=</HashCode>
+      <FileName>Service\ApplicationVersionService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barcoin.Client.Service.ChartSeriesRepository">
+    <Position X="11.75" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAEAAIAAAAAgAAAAAAAACAAQAAAABAAAAAAAA=</HashCode>
+      <FileName>Service\ChartSeriesRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barcoin.Client.Static.Settings" Collapsed="true">
+    <Position X="24.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Static\Settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barcoin.Client.Static.Splasher">
+    <Position X="14" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Static\Splasher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barcoin.Client.View.AboutView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\AboutView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Barcoin.Client.View.DashboardView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\DashboardView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Barcoin.Client.View.LoginView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\LoginView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Barcoin.Client.View.MainView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\MainView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Barcoin.Client.View.RegisterView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="26.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\RegisterView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Barcoin.Client.View.SendView" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\SendView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Barcoin.Client.ViewModel.AboutViewModel">
+    <Position X="10" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAgAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModel\AboutViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barcoin.Client.ViewModel.DashboardViewModel">
+    <Position X="12.25" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAgAAAAAAACBgAAAABAAAAABCAEAAAAIAAQAA=</HashCode>
+      <FileName>ViewModel\DashboardViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barcoin.Client.ViewModel.LoginViewModel">
+    <Position X="14.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAABQGAAgEAABAQBAAAAAAAABCAABA=</HashCode>
+      <FileName>ViewModel\LoginViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barcoin.Client.ViewModel.MainViewModel">
+    <Position X="16.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEMRAAQAAAABAAAAAAAAIAAAACAAAQQ=</HashCode>
+      <FileName>ViewModel\MainViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barcoin.Client.ViewModel.RegisterViewModel">
+    <Position X="3.25" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AABAAEAAAAhAAQAIAQGAAAEAAAAQAACEAAAAARAAABA=</HashCode>
+      <FileName>ViewModel\RegisterViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barcoin.Client.ViewModel.SendViewModel">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAQAEAAEAAACBAAIQwIACCAAAABAAABA=</HashCode>
+      <FileName>ViewModel\SendViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barcoin.Client.ViewModel.ViewModelLocator">
+    <Position X="15.75" Y="9.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAEAAEAAAAAAAAABAAAAAAAQBAAAAAA=</HashCode>
+      <FileName>ViewModel\ViewModelLocator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="MVVM.IDelegateCommand" Collapsed="true">
+    <Position X="19.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\MVVM\IDelegateCommand.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MVVM.IExecuteWithObject" Collapsed="true">
+    <Position X="21" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACEAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\MVVM\IExecuteWithObject.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MVVM.IMessenger" Collapsed="true">
+    <Position X="22.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAABAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Helper\MVVM\IMessenger.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MVVM.ISimpleIoc" Collapsed="true">
+    <Position X="24.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAARAAAAAAAAAAAAAABAAAAAAEAAAAAEAA=</HashCode>
+      <FileName>Helper\MVVM\ISimpleIoc.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="MVVM.DesignerPlatformLibrary" Collapsed="true">
+    <Position X="19.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAEAAQAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Helper\MVVM\DesignerLibrary.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

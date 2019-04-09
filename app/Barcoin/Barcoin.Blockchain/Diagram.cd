@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Barcoin.Blockchain.Helper.DbHelper">
+    <Position X="10" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\DbHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barcoin.Blockchain.Helper.DigitalSignatureUtils">
+    <Position X="8.25" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAQAABAAAAAACAACAABgAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Helper\DigitalSignatureUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barcoin.Blockchain.Helper.HashUtils">
+    <Position X="10.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Helper\HashUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barcoin.Blockchain.Model.Block" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAIAAAACAAkCAAAAAAAACAAAACAACAAAAAE=</HashCode>
+      <FileName>Model\Block.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Barcoin.Blockchain.Model.Blockchain" BaseTypeListCollapsed="true">
+    <Position X="12.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAEACAAIAAAAAAAAAgAAAAAAAgAAFAAAAAABAAgIAA=</HashCode>
+      <FileName>Model\Blockchain.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Barcoin.Blockchain.Model.Transaction" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAUAAAAAAAAAAECAACAAAABAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Model\Transaction.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Barcoin.Blockchain.Model.TransactionPool" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAAAABAAAAAAAACAAAAQAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Model\TransactionPool.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Barcoin.Blockchain.Model.User">
+    <Position X="6.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAJCAEAAAAAAAAAIAQACAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Model\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Barcoin.Blockchain.Service.BlockRepository" BaseTypeListCollapsed="true">
+    <Position X="14.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\BlockRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Barcoin.Blockchain.Service.TransactionPoolRepository" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="5.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAQAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\TransactionPoolRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Barcoin.Blockchain.Service.TransactionRepository" BaseTypeListCollapsed="true">
+    <Position X="16.5" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAARAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\TransactionRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Barcoin.Blockchain.Service.UserRepository" BaseTypeListCollapsed="true">
+    <Position X="21.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAQAABAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\UserRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="Barcoin.Blockchain.Interface.IBlock" Collapsed="true">
+    <Position X="14.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAgAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Interface\IBlock.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Barcoin.Blockchain.Interface.IBlockchain" Collapsed="true">
+    <Position X="16" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAAAgAAAAAAAAAABAAAAAAAAAgIAA=</HashCode>
+      <FileName>Interface\IBlockchain.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Barcoin.Blockchain.Interface.ITransaction" Collapsed="true">
+    <Position X="17.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Interface\ITransaction.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Barcoin.Blockchain.Interface.ITransactionPool" Collapsed="true">
+    <Position X="19.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Interface\ITransactionPool.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Barcoin.Blockchain.Service.IBaseRepository&lt;T&gt;">
+    <Position X="17.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\IBaseRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Barcoin.Blockchain.Service.IBlockRepository" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\IBlockRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Barcoin.Blockchain.Service.ITransactionPoolRepository" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\ITransactionPoolRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Barcoin.Blockchain.Service.ITransactionRepository" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\ITransactionRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Barcoin.Blockchain.Service.IUserRepository" Collapsed="true">
+    <Position X="11.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\IUserRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Barcoin.Blockchain.Enum.TransactionStatus">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICA=</HashCode>
+      <FileName>Enum\TransactionStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
